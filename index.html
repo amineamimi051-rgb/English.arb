@@ -1,0 +1,3925 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>English Master - تعلم الإنجليزية باحتراف</title>
+<meta name="theme-color" content="#ff6b35">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="English Master">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<link rel="manifest" href='data:application/manifest+json,{"name":"English Master","short_name":"English Master","start_url":".","display":"standalone","background_color":"%23f4f5fb","theme_color":"%23ff6b35"}'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f5fb;
+    --bg-grad:linear-gradient(180deg,#eef0fa 0%,#f4f5fb 100%);
+    --card:#ffffff;
+    --card-shadow:0 6px 18px rgba(80,80,120,.08),0 2px 4px rgba(80,80,120,.04);
+    --card-shadow-hover:0 12px 28px rgba(80,80,120,.15),0 4px 8px rgba(80,80,120,.06);
+    --orange:#ff6b35;
+    --orange-light:#ff8a5b;
+    --orange-dark:#e5491b;
+    --orange-grad:linear-gradient(135deg,#ff8a5b 0%,#ff6b35 50%,#e5491b 100%);
+    --purple:#6c5ce7;
+    --purple-light:#a29bfe;
+    --purple-dark:#4834d4;
+    --purple-grad:linear-gradient(135deg,#a29bfe 0%,#6c5ce7 50%,#4834d4 100%);
+    --gold:#fdcb6e;
+    --gold-grad:linear-gradient(135deg,#ffe066 0%,#fdcb6e 50%,#f39c12 100%);
+    --green:#00b894;
+    --green-grad:linear-gradient(135deg,#55efc4 0%,#00b894 50%,#008066 100%);
+    --red:#ff5e57;
+    --red-grad:linear-gradient(135deg,#ff8a80 0%,#ff5e57 50%,#c0392b 100%);
+    --blue:#0984e3;
+    --txt-1:#2d3436;
+    --txt-2:#636e72;
+    --txt-3:#a0a4b0;
+    --txt-light:#ffffff;
+    --border:#e9ecf2;
+    --radius:18px;
+    --radius-sm:12px;
+    --radius-xs:8px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:'Cairo','Tajawal',system-ui,sans-serif;
+    background:var(--bg-grad);
+    color:var(--txt-1);
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 600px 400px at 50% -10%, rgba(255,107,53,.08), transparent 60%),
+      radial-gradient(ellipse 500px 300px at 100% 100%, rgba(108,92,231,.08), transparent 60%);
+  }
+  .app{
+    position:relative;z-index:1;
+    max-width:520px;margin:0 auto;
+    padding:0 0 80px;
+    min-height:100vh;
+  }
+  /* === Top stats bar === */
+  .top-stats{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;padding:14px 16px 8px;
+    position:sticky;top:0;
+    background:rgba(244,245,251,.92);
+    backdrop-filter:blur(10px);
+    z-index:50;
+  }
+  .stat-pill{
+    display:flex;align-items:center;gap:6px;
+    background:var(--card);
+    padding:8px 14px;border-radius:20px;
+    box-shadow:var(--card-shadow);
+    font-weight:800;font-size:14px;
+    border:1px solid var(--border);
+  }
+  .stat-pill .ic{font-size:16px}
+  .stat-pill.streak{color:var(--orange)}
+  .stat-pill.energy{color:var(--purple)}
+  .stat-pill.xp{color:var(--blue)}
+  .stat-pill .v{font-variant-numeric:tabular-nums}
+  /* === Screens === */
+  .screen{display:none;animation:slideup .4s ease}
+  .screen.active{display:block}
+  @keyframes slideup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  /* === Home === */
+  .home-head{
+    padding:8px 16px 16px;
+  }
+  .home-head h1{
+    font-size:24px;font-weight:900;color:var(--txt-1);
+    display:flex;align-items:center;gap:8px;
+  }
+  .home-head h1 .em{font-size:22px}
+  .home-head .sub{font-size:12px;color:var(--txt-2);margin-top:2px;font-weight:600}
+  /* === User level card === */
+  .user-card{
+    margin:0 16px 16px;
+    background:var(--purple-grad);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    color:#fff;
+    box-shadow:0 12px 24px rgba(108,92,231,.3);
+    position:relative;overflow:hidden;
+  }
+  .user-card::before{
+    content:"";position:absolute;top:-30px;right:-30px;
+    width:160px;height:160px;border-radius:50%;
+    background:rgba(255,255,255,.1);
+  }
+  .user-card::after{
+    content:"";position:absolute;bottom:-50px;left:-30px;
+    width:120px;height:120px;border-radius:50%;
+    background:rgba(255,255,255,.06);
+  }
+  .user-card .row1{
+    display:flex;align-items:center;justify-content:space-between;
+    position:relative;z-index:1;
+  }
+  .user-card .lvl-circle{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--gold-grad);
+    display:grid;place-items:center;
+    font-size:30px;font-weight:900;color:#5d3a00;
+    box-shadow:0 6px 14px rgba(253,203,110,.5), inset 0 2px 4px rgba(255,255,255,.5);
+    flex-shrink:0;
+  }
+  .user-card .lvl-info{text-align:left;flex:1;padding-right:14px}
+  .user-card .lvl-info .t1{font-size:13px;font-weight:600;opacity:.9}
+  .user-card .lvl-info .t2{font-size:18px;font-weight:900}
+  .user-card .xp-bar{
+    margin-top:12px;height:8px;
+    background:rgba(255,255,255,.2);
+    border-radius:4px;overflow:hidden;
+    position:relative;z-index:1;
+  }
+  .user-card .xp-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--gold),#fff);
+    border-radius:4px;
+    transition:width .6s ease;
+  }
+  .user-card .xp-text{
+    margin-top:6px;font-size:11px;opacity:.9;
+    display:flex;justify-content:space-between;
+    position:relative;z-index:1;
+  }
+  /* === CTA Card === */
+  .cta-card{
+    margin:0 16px 16px;
+    background:var(--orange-grad);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    color:#fff;
+    box-shadow:0 10px 22px rgba(255,107,53,.3);
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    cursor:pointer;transition:transform .2s;
+  }
+  .cta-card:active{transform:scale(.98)}
+  .cta-card .ct-l{flex:1}
+  .cta-card .ct-t{font-size:18px;font-weight:900;margin-bottom:2px}
+  .cta-card .ct-d{font-size:12px;opacity:.95;font-weight:600}
+  .cta-card .ct-r{
+    width:54px;height:54px;border-radius:14px;
+    background:rgba(255,255,255,.25);
+    display:grid;place-items:center;
+    font-size:28px;
+    backdrop-filter:blur(4px);
+    border:1px solid rgba(255,255,255,.3);
+  }
+  /* === Section === */
+  .section{
+    padding:0 16px 16px;
+  }
+  .section-head{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-size:17px;font-weight:800;color:var(--txt-1);
+    display:flex;align-items:center;gap:6px;
+  }
+  .section-head .see-all{
+    font-size:12px;color:var(--purple);font-weight:700;
+    background:none;border:none;font-family:inherit;cursor:pointer;
+    display:flex;align-items:center;gap:4px;
+  }
+  /* === Level cards === */
+  .level-card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:16px;
+    margin-bottom:10px;
+    box-shadow:var(--card-shadow);
+    display:flex;align-items:center;gap:14px;
+    cursor:pointer;transition:all .2s;
+    position:relative;overflow:hidden;
+    border:1.5px solid transparent;
+  }
+  .level-card:active{transform:scale(.98)}
+  .level-card.locked{opacity:.55;cursor:not-allowed}
+  .level-card.locked::after{
+    content:"🔒";position:absolute;left:16px;top:50%;transform:translateY(-50%);
+    font-size:20px;
+  }
+  .level-card.completed{border-color:var(--green)}
+  .level-card.current{border-color:var(--orange);box-shadow:0 8px 20px rgba(255,107,53,.2)}
+  .level-emoji{
+    width:54px;height:54px;border-radius:14px;
+    display:grid;place-items:center;
+    font-size:28px;
+    flex-shrink:0;
+  }
+  .level-info{flex:1;min-width:0}
+  .level-info .t{font-size:15px;font-weight:800;color:var(--txt-1);margin-bottom:2px}
+  .level-info .d{font-size:11px;color:var(--txt-2);font-weight:600;margin-bottom:6px}
+  .level-progress{
+    height:6px;background:#eef0f7;border-radius:3px;overflow:hidden;
+  }
+  .level-progress .fill{height:100%;border-radius:3px;transition:width .5s}
+  .level-meta{
+    display:flex;align-items:center;gap:6px;flex-shrink:0;
+    font-size:11px;color:var(--txt-3);font-weight:700;
+  }
+  .level-meta .pct{font-size:13px;color:var(--txt-1);font-weight:800}
+  /* === Lesson screen === */
+  .lesson-top{
+    padding:14px 16px 8px;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .lesson-close{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--card);border:none;
+    display:grid;place-items:center;
+    box-shadow:var(--card-shadow);cursor:pointer;
+    font-size:18px;color:var(--txt-2);
+  }
+  .lesson-progress-bar{
+    flex:1;height:10px;background:#e3e6ee;border-radius:5px;overflow:hidden;
+  }
+  .lesson-progress-bar .fill{
+    height:100%;background:var(--green-grad);
+    border-radius:5px;transition:width .4s;
+  }
+  .lesson-heart{display:flex;align-items:center;gap:4px;font-weight:800;color:var(--red);font-size:14px}
+  /* === Word card (flashcard) === */
+  .word-card{
+    margin:14px 16px;
+    background:var(--card);
+    border-radius:24px;
+    padding:30px 22px;
+    box-shadow:var(--card-shadow);
+    text-align:center;
+    position:relative;
+    min-height:340px;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+  }
+  .word-emoji{font-size:80px;margin-bottom:14px;line-height:1}
+  .word-en{
+    font-size:34px;font-weight:900;color:var(--txt-1);
+    font-family:'Poppins',sans-serif;
+    letter-spacing:-.5px;
+    margin-bottom:4px;
+  }
+  .word-type{
+    display:inline-block;
+    background:#eef0f7;color:var(--txt-2);
+    padding:3px 10px;border-radius:10px;
+    font-size:10px;font-weight:700;margin-bottom:14px;
+  }
+  .word-ar{
+    font-size:22px;font-weight:800;color:var(--purple);
+    margin-bottom:18px;
+    direction:rtl;
+  }
+  .word-ex{
+    background:#f7f8fc;border-radius:12px;
+    padding:12px 14px;margin-bottom:18px;
+    font-size:13px;color:var(--txt-2);line-height:1.6;
+    border-right:3px solid var(--orange);
+  }
+  .word-ex .en{font-weight:700;color:var(--txt-1);font-family:'Poppins',sans-serif;margin-bottom:4px}
+  .word-actions{display:flex;gap:10px;justify-content:center}
+  .word-btn{
+    width:54px;height:54px;border-radius:50%;
+    border:none;cursor:pointer;
+    display:grid;place-items:center;
+    font-size:22px;
+    transition:all .2s;
+  }
+  .word-btn:active{transform:scale(.92)}
+  .word-btn.speak{background:var(--blue);color:#fff;box-shadow:0 6px 14px rgba(9,132,227,.4)}
+  .word-btn.speak.slow{background:#74b9ff}
+  .word-btn.flip{background:var(--purple);color:#fff;box-shadow:0 6px 14px rgba(108,92,231,.4)}
+  /* === Quiz === */
+  .quiz-q{
+    margin:14px 16px;
+    background:var(--card);
+    border-radius:24px;
+    padding:24px 18px;
+    box-shadow:var(--card-shadow);
+    text-align:center;
+  }
+  .quiz-q .label{
+    font-size:12px;color:var(--txt-3);font-weight:700;
+    text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;
+  }
+  .quiz-q .prompt-en{
+    font-size:30px;font-weight:900;color:var(--txt-1);
+    font-family:'Poppins',sans-serif;margin-bottom:6px;
+  }
+  .quiz-q .prompt-ar{
+    font-size:14px;color:var(--txt-2);font-weight:600;margin-bottom:18px;
+  }
+  .quiz-q .speak-btn{
+    width:60px;height:60px;border-radius:50%;
+    background:var(--blue);color:#fff;border:none;
+    display:grid;place-items:center;font-size:26px;
+    margin:0 auto 18px;cursor:pointer;
+    box-shadow:0 8px 18px rgba(9,132,227,.4);
+  }
+  .quiz-q .speak-btn:active{transform:scale(.92)}
+  .quiz-options{display:grid;gap:10px}
+  .quiz-opt{
+    background:var(--card);border:2px solid var(--border);
+    border-radius:14px;padding:14px 16px;
+    font-size:15px;font-weight:700;color:var(--txt-1);
+    font-family:'Poppins',inherit;
+    cursor:pointer;transition:all .2s;
+    display:flex;align-items:center;gap:10px;
+  }
+  .quiz-opt:hover{border-color:var(--purple);transform:translateX(-3px)}
+  .quiz-opt .ic{width:30px;height:30px;border-radius:50%;background:#eef0f7;display:grid;place-items:center;font-size:14px;font-weight:800;color:var(--txt-2);flex-shrink:0}
+  .quiz-opt.correct{border-color:var(--green);background:rgba(0,184,148,.1);color:var(--green)}
+  .quiz-opt.correct .ic{background:var(--green);color:#fff}
+  .quiz-opt.wrong{border-color:var(--red);background:rgba(255,94,87,.1);color:var(--red)}
+  .quiz-opt.wrong .ic{background:var(--red);color:#fff}
+  .quiz-opt.disabled{pointer-events:none;opacity:.55}
+  /* === Typing input === */
+  .type-input{
+    width:100%;text-align:center;
+    background:#f7f8fc;border:2px solid var(--border);
+    border-radius:14px;padding:14px;
+    font-size:20px;font-weight:800;color:var(--txt-1);
+    font-family:'Poppins',sans-serif;
+    margin-bottom:14px;
+    transition:all .2s;
+    direction:ltr;
+  }
+  .type-input:focus{outline:none;border-color:var(--purple);background:#fff;box-shadow:0 0 0 3px rgba(108,92,231,.15)}
+  .type-input.correct{border-color:var(--green);background:rgba(0,184,148,.1);color:var(--green)}
+  .type-input.wrong{border-color:var(--red);background:rgba(255,94,87,.1);color:var(--red)}
+  /* === Bottom feedback === */
+  .feedback{
+    position:fixed;bottom:0;left:0;right:0;
+    background:var(--card);
+    border-top:1px solid var(--border);
+    padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+    box-shadow:0 -8px 20px rgba(0,0,0,.05);
+    z-index:100;
+    display:none;
+    animation:slideup .3s;
+  }
+  .feedback.active{display:flex;align-items:center;gap:14px}
+  .feedback.correct{border-top:3px solid var(--green)}
+  .feedback.wrong{border-top:3px solid var(--red)}
+  .feedback .fb-ic{
+    width:42px;height:42px;border-radius:50%;
+    display:grid;place-items:center;font-size:22px;color:#fff;
+    flex-shrink:0;
+  }
+  .feedback.correct .fb-ic{background:var(--green-grad)}
+  .feedback.wrong .fb-ic{background:var(--red-grad)}
+  .feedback .fb-info{flex:1}
+  .feedback .fb-t{font-size:15px;font-weight:800;color:var(--txt-1)}
+  .feedback .fb-d{font-size:12px;color:var(--txt-2);font-weight:600;margin-top:2px}
+  .feedback .fb-btn{
+    padding:10px 20px;border-radius:12px;border:none;
+    font-family:inherit;font-weight:800;font-size:14px;
+    cursor:pointer;color:#fff;
+  }
+  .feedback.correct .fb-btn{background:var(--green)}
+  .feedback.wrong .fb-btn{background:var(--purple)}
+  /* === Bottom nav === */
+  .bottom-nav{
+    position:fixed;bottom:0;left:0;right:0;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    border-top:1px solid var(--border);
+    display:flex;justify-content:space-around;align-items:center;
+    padding:8px 4px calc(8px + env(safe-area-inset-bottom));
+    z-index:90;
+    max-width:520px;margin:0 auto;
+  }
+  .nav-item{
+    flex:1;
+    background:none;border:none;
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    padding:6px 4px;cursor:pointer;
+    font-family:inherit;
+    color:var(--txt-3);
+    font-size:10px;font-weight:700;
+    transition:color .2s;
+    position:relative;
+  }
+  .nav-item .ic{font-size:22px}
+  .nav-item.active{color:var(--orange)}
+  .nav-item.active .ic{
+    background:var(--orange-grad);color:#fff;
+    width:38px;height:38px;border-radius:12px;
+    display:grid;place-items:center;font-size:20px;
+    box-shadow:0 6px 14px rgba(255,107,53,.35);
+    margin-bottom:2px;
+  }
+  /* === Stats === */
+  .stats-hero{
+    margin:14px 16px 16px;
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--card-shadow);
+    text-align:center;
+  }
+  .stats-hero .big-num{
+    font-size:48px;font-weight:900;color:var(--orange);
+    font-variant-numeric:tabular-nums;line-height:1;
+    font-family:'Poppins',sans-serif;
+  }
+  .stats-hero .big-lbl{font-size:13px;color:var(--txt-2);font-weight:600;margin-top:6px}
+  .stats-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    padding:0 16px 16px;
+  }
+  .stats-card{
+    background:var(--card);border-radius:14px;padding:14px;
+    box-shadow:var(--card-shadow);
+    text-align:center;
+  }
+  .stats-card .ic{
+    width:42px;height:42px;border-radius:12px;
+    display:grid;place-items:center;font-size:20px;
+    margin:0 auto 6px;
+  }
+  .stats-card .v{font-size:22px;font-weight:900;color:var(--txt-1);font-variant-numeric:tabular-nums}
+  .stats-card .l{font-size:11px;color:var(--txt-2);font-weight:600;margin-top:2px}
+  .stats-card .ic.g1{background:linear-gradient(135deg,#ffecd2,#ff8a5b);color:#fff}
+  .stats-card .ic.g2{background:linear-gradient(135deg,#d4fc79,#96e6a1);color:#fff}
+  .stats-card .ic.g3{background:linear-gradient(135deg,#a29bfe,#6c5ce7);color:#fff}
+  .stats-card .ic.g4{background:linear-gradient(135deg,#84fab0,#8fd3f4);color:#fff}
+  /* === Chart === */
+  .chart-card{
+    margin:0 16px 16px;
+    background:var(--card);border-radius:var(--radius);
+    padding:16px;box-shadow:var(--card-shadow);
+  }
+  .chart-card .title{font-size:14px;font-weight:800;color:var(--txt-1);margin-bottom:14px}
+  .chart-bars{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    height:120px;gap:8px;
+  }
+  .chart-bar{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+  }
+  .chart-bar .bar{
+    width:100%;max-width:30px;
+    background:var(--orange-grad);border-radius:6px 6px 0 0;
+    transition:height .6s ease;
+    min-height:4px;
+  }
+  .chart-bar .day{font-size:10px;color:var(--txt-3);font-weight:700}
+  /* === Achievements === */
+  .badges{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+    padding:0 16px 16px;
+  }
+  .badge{
+    background:var(--card);border-radius:12px;padding:10px 6px;
+    box-shadow:var(--card-shadow);text-align:center;
+    border:2px solid transparent;
+    transition:all .2s;
+  }
+  .badge.earned{border-color:var(--gold)}
+  .badge .ic{
+    font-size:28px;margin-bottom:4px;
+    filter:grayscale(1) opacity(.4);
+  }
+  .badge.earned .ic{filter:none}
+  .badge .nm{font-size:9px;color:var(--txt-2);font-weight:700;line-height:1.2}
+  /* === Manage === */
+  .manage-tabs{
+    display:flex;gap:6px;padding:14px 16px;
+    overflow-x:auto;
+  }
+  .mtab{
+    background:var(--card);border:1px solid var(--border);
+    padding:8px 16px;border-radius:20px;
+    font-size:12px;font-weight:700;color:var(--txt-2);
+    font-family:inherit;cursor:pointer;white-space:nowrap;
+    transition:all .2s;
+  }
+  .mtab.active{background:var(--purple-grad);color:#fff;border-color:transparent}
+  .form-card{
+    margin:0 16px 14px;
+    background:var(--card);border-radius:var(--radius);
+    padding:18px;box-shadow:var(--card-shadow);
+  }
+  .form-card h3{font-size:15px;font-weight:800;color:var(--txt-1);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+  .field{margin-bottom:12px}
+  .field label{display:block;font-size:12px;color:var(--txt-2);font-weight:700;margin-bottom:4px}
+  .field input,.field select,.field textarea{
+    width:100%;background:#f7f8fc;border:1.5px solid var(--border);
+    border-radius:10px;padding:10px 12px;
+    font-family:inherit;font-size:14px;font-weight:600;
+    color:var(--txt-1);
+    transition:all .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--purple);background:#fff;
+    box-shadow:0 0 0 3px rgba(108,92,231,.12);
+  }
+  .field textarea{resize:vertical;min-height:50px}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  /* === Buttons === */
+  .btn{
+    background:var(--purple-grad);color:#fff;
+    border:none;padding:12px 22px;border-radius:12px;
+    font-family:inherit;font-weight:800;font-size:14px;
+    cursor:pointer;transition:all .2s;
+    box-shadow:0 6px 14px rgba(108,92,231,.3);
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn.orange{background:var(--orange-grad);box-shadow:0 6px 14px rgba(255,107,53,.3)}
+  .btn.green{background:var(--green-grad);box-shadow:0 6px 14px rgba(0,184,148,.3)}
+  .btn.ghost{background:#eef0f7;color:var(--txt-1);box-shadow:none}
+  body.dark .btn.ghost{background:#2b3040;color:var(--txt-1)}
+  .btn.block{width:100%}
+  .btn.sm{padding:8px 14px;font-size:12px}
+  /* === Manage list === */
+  .manage-list{padding:0 16px 16px}
+  .manage-item{
+    background:var(--card);border-radius:12px;padding:12px 14px;
+    box-shadow:var(--card-shadow);margin-bottom:8px;
+    display:flex;align-items:center;gap:10px;
+    border:1px solid var(--border);
+  }
+  .manage-item .em{font-size:24px}
+  .manage-item .info{flex:1;min-width:0}
+  .manage-item .info .t{font-size:13px;font-weight:800;color:var(--txt-1)}
+  .manage-item .info .d{font-size:11px;color:var(--txt-2);font-weight:600;margin-top:2px}
+  .manage-item .actions{display:flex;gap:6px}
+  .manage-item .actions button{
+    background:none;border:1px solid var(--border);
+    width:30px;height:30px;border-radius:8px;cursor:pointer;
+    font-size:14px;
+  }
+  .manage-item .actions .del{color:var(--red);border-color:rgba(255,94,87,.3)}
+  .manage-item .actions .del:hover{background:rgba(255,94,87,.1)}
+  /* === Toast === */
+  .toast-wrap{
+    position:fixed;top:14px;left:14px;right:14px;
+    z-index:2000;pointer-events:none;
+    display:flex;flex-direction:column;gap:8px;align-items:center;
+  }
+  .toast{
+    background:var(--txt-1);color:#fff;
+    padding:10px 18px;border-radius:12px;
+    font-size:13px;font-weight:700;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    animation:slidein .3s,slideout .3s 2.4s forwards;
+    max-width:90vw;text-align:center;
+  }
+  .toast.success{background:var(--green)}
+  .toast.error{background:var(--red)}
+  @keyframes slidein{from{transform:translateY(-20px);opacity:0}to{transform:none;opacity:1}}
+  @keyframes slideout{to{transform:translateY(-20px);opacity:0}}
+  /* === Modal === */
+  .modal{
+    position:fixed;inset:0;background:rgba(45,52,54,.7);
+    backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;
+    z-index:1000;padding:20px;
+  }
+  .modal.active{display:flex;animation:slideup .3s}
+  .modal-box{
+    background:var(--card);border-radius:24px;
+    padding:30px 24px;max-width:400px;width:100%;text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    animation:popin .4s cubic-bezier(.2,1.3,.4,1);
+  }
+  @keyframes popin{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+  .modal-box .ic{font-size:64px;margin-bottom:10px}
+  .modal-box h2{font-size:22px;font-weight:900;color:var(--txt-1);margin-bottom:8px}
+  .modal-box p{color:var(--txt-2);font-size:14px;line-height:1.6;margin-bottom:16px}
+  .modal-box .actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  /* === Review === */
+  .review-intro{
+    margin:14px 16px;
+    background:var(--green-grad);color:#fff;
+    border-radius:var(--radius);padding:22px 20px;
+    box-shadow:0 10px 24px rgba(0,184,148,.3);
+    text-align:center;
+  }
+  .review-intro .ic{font-size:50px;margin-bottom:8px}
+  .review-intro h2{font-size:20px;font-weight:900;margin-bottom:6px}
+  .review-intro p{font-size:13px;opacity:.95;font-weight:600;line-height:1.6}
+  .review-list{padding:0 16px 16px}
+  .review-card{
+    background:var(--card);border-radius:14px;padding:14px 16px;
+    box-shadow:var(--card-shadow);margin-bottom:8px;
+    display:flex;align-items:center;gap:12px;
+    border-right:4px solid var(--orange);
+  }
+  .review-card .em{font-size:32px}
+  .review-card .info{flex:1}
+  .review-card .en{font-size:16px;font-weight:800;color:var(--txt-1);font-family:'Poppins',sans-serif}
+  .review-card .ar{font-size:13px;color:var(--txt-2);font-weight:600;margin-top:2px}
+  .review-card .stage{
+    background:var(--purple-grad);color:#fff;
+    padding:4px 10px;border-radius:10px;
+    font-size:11px;font-weight:700;
+  }
+  /* === Empty === */
+  .empty{
+    text-align:center;padding:50px 20px;color:var(--txt-3);
+  }
+  .empty .em{font-size:48px;opacity:.5;margin-bottom:10px}
+  /* === Speech indicator === */
+  .speaking-indicator{
+    position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+    background:rgba(45,52,54,.9);color:#fff;
+    padding:14px 22px;border-radius:30px;
+    font-weight:700;font-size:14px;
+    z-index:1500;display:none;
+    animation:pulse 1s infinite;
+  }
+  .speaking-indicator.active{display:flex;align-items:center;gap:8px}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+  /* === Confetti === */
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:1400}
+  /* === Speaking test === */
+  .mic-btn{
+    width:80px;height:80px;border-radius:50%;
+    background:var(--orange-grad);color:#fff;
+    border:none;cursor:pointer;
+    display:grid;place-items:center;
+    font-size:36px;
+    box-shadow:0 8px 20px rgba(255,107,53,.4);
+    margin:18px auto 10px;
+    transition:all .2s;
+  }
+  .mic-btn:active{transform:scale(.92)}
+  .mic-btn.recording{
+    background:var(--red-grad);
+    animation:micpulse 1.2s infinite;
+  }
+  @keyframes micpulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(255,94,87,.7),0 8px 20px rgba(255,94,87,.4)}
+    50%{box-shadow:0 0 0 25px rgba(255,94,87,0),0 8px 20px rgba(255,94,87,.4)}
+  }
+  .mic-hint{font-size:12px;color:var(--txt-3);text-align:center;font-weight:600;margin-bottom:14px}
+  .recording-status{display:none;text-align:center;color:var(--red);font-weight:800;font-size:14px;margin-bottom:10px}
+  .recording-status.active{display:flex;align-items:center;justify-content:center;gap:6px}
+  .rec-dot{
+    width:10px;height:10px;border-radius:50%;background:var(--red);
+    animation:blink 1s infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  .rec-result{
+    text-align:center;padding:12px;border-radius:12px;
+    font-size:14px;font-weight:700;
+    margin-top:10px;min-height:40px;
+  }
+  .rec-result.correct{background:rgba(0,184,148,.1);color:var(--green);border:1px solid var(--green)}
+  .rec-result.wrong{background:rgba(255,94,87,.1);color:var(--red);border:1px solid var(--red)}
+  /* === Test cards === */
+  .test-card{
+    background:var(--card);border-radius:var(--radius);
+    padding:22px 18px;box-shadow:var(--card-shadow);
+    text-align:center;cursor:pointer;transition:all .2s;
+    margin-bottom:12px;
+    border:1.5px solid transparent;
+  }
+  .test-card:active{transform:translateY(2px)}
+  .test-card:hover{transform:translateY(-3px);box-shadow:var(--card-shadow-hover);border-color:var(--orange)}
+  .test-card.disabled{opacity:.5;pointer-events:none}
+  .test-ic{
+    width:64px;height:64px;border-radius:16px;
+    display:grid;place-items:center;margin:0 auto 12px;
+    font-size:30px;color:#fff;
+    box-shadow:0 6px 14px rgba(0,0,0,.1);
+  }
+  .test-card h3{font-size:16px;font-weight:800;color:var(--txt-1);margin-bottom:4px}
+  .test-card p{font-size:12px;color:var(--txt-2);line-height:1.5;margin-bottom:8px}
+  .test-card .test-meta{
+    font-size:11px;color:var(--txt-3);font-weight:700;
+    background:#f7f8fc;padding:4px 10px;border-radius:8px;
+    display:inline-block;
+  }
+  /* === Smart widgets === */
+  .smart-widget{
+    margin:0 16px 12px;
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:14px 16px;
+    box-shadow:var(--card-shadow);
+    display:flex;align-items:center;gap:14px;
+    border:1px solid var(--border);
+    transition:all .2s;
+  }
+  .smart-widget:active{transform:scale(.98)}
+  .smart-widget.done{border-color:var(--green);background:rgba(0,184,148,.05)}
+  .smart-widget .sw-ic{
+    width:48px;height:48px;border-radius:12px;
+    display:grid;place-items:center;
+    font-size:22px;color:#fff;
+    flex-shrink:0;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+  }
+  .smart-widget .sw-body{flex:1;min-width:0}
+  .smart-widget .sw-title{font-size:13px;font-weight:800;color:var(--txt-1);margin-bottom:2px}
+  .smart-widget .sw-desc{font-size:12px;color:var(--txt-2);font-weight:600;line-height:1.4}
+  .smart-widget .sw-progress{height:5px;background:#eef0f7;border-radius:3px;overflow:hidden;margin-top:6px}
+  .smart-widget .sw-fill{height:100%;border-radius:3px;transition:width .5s}
+  .smart-widget .sw-meta{font-size:10px;color:var(--txt-3);font-weight:700;margin-top:3px}
+  .smart-widget .sw-btn{
+    background:var(--purple-grad);color:#fff;
+    border:none;padding:8px 16px;border-radius:10px;
+    font-family:inherit;font-weight:800;font-size:12px;
+    cursor:pointer;box-shadow:0 4px 10px rgba(108,92,231,.3);
+    flex-shrink:0;
+  }
+  .smart-widget.wod .sw-btn{padding:8px 12px;background:var(--blue-grad);box-shadow:0 4px 10px rgba(9,132,227,.3)}
+  /* === Question timer === */
+  .q-timer{
+    display:none;align-items:center;gap:4px;
+    background:linear-gradient(135deg,#ff8a80,#ff5e57);
+    color:#fff;padding:6px 12px;border-radius:10px;
+    font-weight:800;font-size:14px;
+    box-shadow:0 4px 10px rgba(255,94,87,.4);
+    font-variant-numeric:tabular-nums;
+  }
+  .q-timer.danger{animation:tpulse .5s infinite}
+  @keyframes tpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+  /* === Heatmap === */
+  .heatmap{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:4px;
+    margin-top:8px;
+  }
+  .heat-cell{
+    aspect-ratio:1;
+    border-radius:6px;
+    display:grid;place-items:center;
+    font-size:9px;font-weight:800;
+    color:#fff;
+    text-shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+  .heat-cell:empty{color:transparent}
+  .heat-count{font-size:10px}
+  /* ============================================================
+     === PRO UPGRADE: Dark mode + Manager + Reminders + Dict ===
+     ============================================================ */
+  :root{--heat-empty:#e9ecf2}
+  /* === Dark mode === */
+  body.dark{
+    --bg:#121419;
+    --bg-grad:linear-gradient(180deg,#171a21 0%,#121419 100%);
+    --card:#1e222b;
+    --card-shadow:0 6px 18px rgba(0,0,0,.4),0 2px 4px rgba(0,0,0,.3);
+    --card-shadow-hover:0 12px 28px rgba(0,0,0,.5),0 4px 8px rgba(0,0,0,.35);
+    --txt-1:#eef1f6;
+    --txt-2:#a9b2c0;
+    --txt-3:#69718a;
+    --border:#2b3040;
+    --heat-empty:#2b3040;
+  }
+  body.dark .top-stats{background:rgba(18,20,25,.92)}
+  body.dark .bottom-nav{background:rgba(24,27,34,.96)}
+  body.dark .word-ex{background:#252a35}
+  body.dark .quiz-opt .ic{background:#252a35}
+  body.dark .level-progress{background:#2b3040}
+  body.dark .smart-widget .sw-progress{background:#2b3040}
+  body.dark .type-input{background:#252a35;color:var(--txt-1)}
+  body.dark .field input,body.dark .field select,body.dark .field textarea{background:#252a35;color:var(--txt-1)}
+  body.dark .mtab{background:#1e222b;color:var(--txt-2)}
+  body.dark .mtab.active{color:#fff}
+  body.dark .rem-row{background:#252a35}
+  body.dark .scramble-slots{background:#252a35}
+  body.dark .tile-slot{background:#1e222b;color:var(--txt-1)}
+  body.dark .emoji-quick button{background:#252a35}
+  body.dark .modal{background:rgba(10,12,16,.78)}
+  /* === Toggle switch === */
+  .switch{position:relative;width:44px;height:24px;flex-shrink:0;display:inline-block}
+  .switch input{opacity:0;width:0;height:0}
+  .switch .knob{position:absolute;inset:0;background:#d6dae3;border-radius:20px;cursor:pointer;transition:.2s}
+  .switch .knob::before{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:3px;right:3px;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .switch input:checked + .knob{background:var(--green)}
+  .switch input:checked + .knob::before{transform:translateX(-20px)}
+  /* === Modal editor (wide) === */
+  .modal-box.wide{max-width:520px;text-align:right;max-height:86vh;overflow-y:auto}
+  .modal-box.wide .ic{font-size:44px;margin-bottom:6px}
+  .modal-box.wide h2{font-size:18px;margin-bottom:12px}
+  /* === Manager rows === */
+  .mrow{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px 12px;margin-bottom:8px}
+  .mrow .em{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+  .mrow .inf{flex:1;min-width:0}
+  .mrow .inf .t{font-size:13px;font-weight:800;color:var(--txt-1)}
+  .mrow .inf .s{font-size:11px;color:var(--txt-2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mrow .act{display:flex;gap:6px;flex-shrink:0}
+  .icon-btn{width:32px;height:32px;border-radius:9px;border:1px solid var(--border);background:none;cursor:pointer;font-size:14px;display:grid;place-items:center;padding:0}
+  .icon-btn:active{transform:scale(.92)}
+  .icon-btn.del{color:var(--red);border-color:rgba(255,94,87,.35)}
+  .icon-btn.edit{color:var(--purple)}
+  .icon-btn.go{color:var(--blue)}
+  /* === Color swatches + emoji picker === */
+  .swatches{display:flex;gap:8px;flex-wrap:wrap}
+  .swatch{width:34px;height:34px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .15s}
+  .swatch.sel{border-color:var(--txt-1);transform:scale(1.12)}
+  .emoji-quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .emoji-quick button{background:#f7f8fc;border:1px solid var(--border);border-radius:8px;font-size:16px;padding:4px 8px;cursor:pointer}
+  /* === Reminders === */
+  .rem-row{display:flex;align-items:center;gap:10px;background:#f7f8fc;border:1px solid var(--border);border-radius:12px;padding:8px 12px;margin-bottom:8px}
+  .rem-row input[type=time]{border:none;background:none;font-family:'Poppins',sans-serif;font-size:18px;font-weight:800;color:var(--txt-1);flex:1;outline:none;padding:4px}
+  .rem-empty{font-size:12px;color:var(--txt-3);text-align:center;padding:10px;font-weight:600}
+  .rem-hint{font-size:12px;color:var(--txt-2);font-weight:600;line-height:1.7;margin-bottom:10px}
+  .hint-card{background:linear-gradient(135deg,rgba(108,92,231,.08),rgba(9,132,227,.08));border:1px dashed var(--purple-light)}
+  /* === Scramble === */
+  .scramble-slots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;direction:ltr;min-height:58px;background:#f7f8fc;border:2px dashed var(--border);border-radius:14px;padding:6px;margin-bottom:12px}
+  .scramble-pool{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;direction:ltr;margin-bottom:14px}
+  .tile{width:42px;height:46px;border-radius:10px;border:none;cursor:pointer;background:var(--purple-grad);color:#fff;font-size:20px;font-weight:900;font-family:'Poppins',sans-serif;box-shadow:0 4px 10px rgba(108,92,231,.3);transition:all .15s}
+  .tile:active{transform:scale(.92)}
+  .tile.used{opacity:.2;pointer-events:none}
+  .tile-slot{width:42px;height:46px;border-radius:10px;border:2px solid var(--border);background:var(--card);color:var(--txt-1);font-size:20px;font-weight:900;font-family:'Poppins',sans-serif;cursor:pointer;padding:0}
+  /* === Dictionary === */
+  .dict-search{width:100%;background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:12px 16px;font-family:inherit;font-size:14px;font-weight:700;color:var(--txt-1);margin-bottom:12px;transition:all .2s}
+  .dict-search:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(108,92,231,.12)}
+  .dict-level-head{font-size:13px;font-weight:800;color:var(--txt-2);margin:14px 2px 8px;display:flex;align-items:center;gap:6px}
+  .dict-word{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:12px;padding:10px 12px;margin-bottom:6px;box-shadow:var(--card-shadow)}
+  .dict-word .em{font-size:22px}
+  .dict-word .w{flex:1;min-width:0}
+  .dict-word .w .en{font-size:14px;font-weight:800;color:var(--txt-1);font-family:'Poppins',sans-serif}
+  .dict-word .w .ar{font-size:12px;color:var(--txt-2);font-weight:600;margin-top:1px}
+  .dict-word .speak-mini{width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;background:var(--blue);color:#fff;font-size:15px;flex-shrink:0;display:grid;place-items:center}
+  .stage-dots{display:flex;gap:2px;flex-shrink:0}
+  .stage-dots span{width:5px;height:14px;border-radius:2px;background:var(--heat-empty)}
+  .stage-dots span.on{background:var(--green)}
+  .dict-empty{text-align:center;padding:30px 16px;color:var(--txt-3);font-weight:600;font-size:13px}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div class="toast-wrap" id="toasts"></div>
+<div class="speaking-indicator" id="speaking"><span>🔊</span><span>جاري النطق...</span></div>
+
+<div class="app">
+  <!-- Top stats -->
+  <div class="top-stats">
+    <div class="stat-pill streak">
+      <span class="ic">🔥</span>
+      <span class="v" id="tp-streak">0</span>
+    </div>
+    <div class="stat-pill energy">
+      <span class="ic">⚡</span>
+      <span class="v" id="tp-energy">5</span>
+      <button onclick="buyEnergy()" style="background:none;border:none;color:var(--purple);font-weight:900;font-size:14px;cursor:pointer;padding:0 4px;margin-right:-4px" title="شراء طاقة بـ 50 XP">+</button>
+    </div>
+    <div class="stat-pill xp">
+      <span class="ic">⭐</span>
+      <span class="v" id="tp-xp">0</span>
+      <span style="font-size:10px;opacity:.7">XP</span>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <section class="screen active" id="screen-home">
+    <div class="home-head">
+      <h1><span class="em">👋</span> مرحباً بعودتك!</h1>
+      <div class="sub">واصل رحلة تعلم الإنجليزية</div>
+    </div>
+
+    <div class="user-card">
+      <div class="row1">
+        <div class="lvl-info">
+          <div class="t1">المستوى</div>
+          <div class="t2" id="uc-level">المتسلقي</div>
+        </div>
+        <div class="lvl-circle" id="uc-circle">1</div>
+      </div>
+      <div class="xp-bar"><div class="xp-fill" id="uc-fill" style="width:0%"></div></div>
+      <div class="xp-text">
+        <span><span id="uc-xp">0</span> XP</span>
+        <span>المستوى التالي: <span id="uc-need">100</span> XP</span>
+      </div>
+    </div>
+
+    <!-- ودجات ذكية جديدة -->
+    <div id="daily-goal-widget" class="smart-widget"></div>
+    <div id="smart-reminder-widget" class="smart-widget suggest"></div>
+    <div id="daily-challenge-widget" class="smart-widget challenge"></div>
+    <div id="word-of-day-widget" class="smart-widget wod"></div>
+
+    <div class="cta-card" onclick="continueLearning()">
+      <div class="ct-l">
+        <div class="ct-t" id="cta-title">ابدأ التعلم</div>
+        <div class="ct-d" id="cta-sub">اختر مستوى للبدء</div>
+      </div>
+      <div class="ct-r">⚡</div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2>📚 مسار التعلم</h2>
+      </div>
+      <div id="levels-list"></div>
+    </div>
+  </section>
+
+  <!-- LESSON -->
+  <section class="screen" id="screen-lesson">
+    <div class="lesson-top">
+      <button class="lesson-close" onclick="exitLesson()">✕</button>
+      <div class="lesson-progress-bar"><div class="fill" id="lesson-fill" style="width:0%"></div></div>
+      <div class="lesson-heart">❤️ <span id="lesson-hearts">3</span></div>
+    </div>
+    <div id="lesson-content"></div>
+  </section>
+
+  <!-- TESTS -->
+  <section class="screen" id="screen-tests">
+    <div class="home-head">
+      <h1><span class="em">🎯</span> الاختبارات</h1>
+      <div class="sub">اختبر مهاراتك في الكتابة والكلام</div>
+    </div>
+    <div class="section">
+      <div id="tests-content"></div>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section class="screen" id="screen-review">
+    <div class="home-head">
+      <h1><span class="em">🧠</span> المراجعة الذكية</h1>
+      <div class="sub">نظام التكرار المتباعد للكلمات الصعبة</div>
+    </div>
+    <div class="review-intro" id="review-intro">
+      <div class="ic">🧠</div>
+      <h2>مراجعة اليوم</h2>
+      <p id="review-count">لا توجد كلمات للمراجعة الآن</p>
+    </div>
+    <div class="review-list" id="review-list"></div>
+  </section>
+
+  <!-- DICTIONARY -->
+  <section class="screen" id="screen-dict">
+    <div class="home-head">
+      <h1><span class="em">📖</span> قاموس الكلمات</h1>
+      <div class="sub">ابحث واستمع لجميع كلماتك (<span id="dict-count">0</span> كلمة)</div>
+    </div>
+    <div class="section">
+      <input type="text" class="dict-search" id="dict-search" placeholder="🔍 ابحث بالعربية أو الإنجليزية..." oninput="renderDict()">
+      <div id="dict-list"></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="screen" id="screen-stats">
+    <div class="home-head">
+      <h1><span class="em">📊</span> إحصائياتي</h1>
+      <div class="sub">تتبع تقدمك وإنجازاتك</div>
+    </div>
+    <div class="stats-hero">
+      <div class="big-num" id="sh-words">0</div>
+      <div class="big-lbl">كلمة متعلمة</div>
+    </div>
+    <div class="stats-grid">
+      <div class="stats-card">
+        <div class="ic g1">🔥</div>
+        <div class="v" id="sc-streak">0</div>
+        <div class="l">أيام متتالية</div>
+      </div>
+      <div class="stats-card">
+        <div class="ic g2">⭐</div>
+        <div class="v" id="sc-xp">0</div>
+        <div class="l">إجمالي XP</div>
+      </div>
+      <div class="stats-card">
+        <div class="ic g3">🎯</div>
+        <div class="v" id="sc-accuracy">0%</div>
+        <div class="l">نسبة الإجابات الصحيحة</div>
+      </div>
+      <div class="stats-card">
+        <div class="ic g4">🏆</div>
+        <div class="v" id="sc-levels">0</div>
+        <div class="l">مستويات مكتملة</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="title">📅 نشاطك هذا الأسبوع</div>
+      <div class="chart-bars" id="chart-bars"></div>
+    </div>
+    <div class="chart-card">
+      <div class="title">🔥 خريطة النشاط (30 يوم)</div>
+      <div class="heatmap" id="heatmap"></div>
+    </div>
+    <div class="stats-grid" id="stats-extra"></div>
+    <div class="section">
+      <div class="section-head"><h2>🏅 الإنجازات</h2></div>
+      <div class="badges" id="badges"></div>
+    </div>
+  </section>
+
+  <!-- MANAGE / SETTINGS -->
+  <section class="screen" id="screen-manage">
+    <div class="home-head">
+      <h1><span class="em">⚙️</span> الإعدادات</h1>
+      <div class="sub">خصّص تجربتك في التطبيق</div>
+    </div>
+    <div class="manage-tabs">
+      <button class="mtab active" onclick="setMTab('general',this)">⚙️ عام</button>
+      <button class="mtab" onclick="setMTab('reminders',this)">🔔 التذكيرات</button>
+      <button class="mtab" onclick="setMTab('levels',this)">📚 المراحل</button>
+      <button class="mtab" onclick="setMTab('data',this)">💾 البيانات</button>
+    </div>
+
+    <!-- TAB: عام -->
+    <div id="mtab-general">
+      <div class="form-card">
+        <h3>🔊 الصوت والنطق</h3>
+        <div class="field">
+          <label>سرعة النطق</label>
+          <select id="set-rate">
+            <option value="0.7">بطيء</option>
+            <option value="0.9" selected>عادي</option>
+            <option value="1.0">سريع</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>الصوت</label>
+          <select id="set-voice"></select>
+        </div>
+        <div class="field">
+          <label style="display:flex;align-items:center;justify-content:space-between">
+            <span>🗣️ النطق التلقائي للكلمات الجديدة</span>
+            <label class="switch"><input type="checkbox" id="set-auto-speak" onchange="saveSettings()"><span class="knob"></span></label>
+          </label>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>🎯 الهدف اليومي</h3>
+        <div class="field">
+          <label>عدد الكلمات المستهدف يومياً</label>
+          <select id="set-daily-goal">
+            <option value="5">5 كلمات يومياً</option>
+            <option value="10" selected>10 كلمات يومياً</option>
+            <option value="15">15 كلمة يومياً</option>
+            <option value="20">20 كلمة يومياً</option>
+            <option value="30">30 كلمة يومياً</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>🎨 المظهر</h3>
+        <div class="field">
+          <label style="display:flex;align-items:center;justify-content:space-between">
+            <span>🌙 الوضع الليلي</span>
+            <label class="switch"><input type="checkbox" id="set-dark-mode" onchange="saveSettings()"><span class="knob"></span></label>
+          </label>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>📲 تثبيت التطبيق</h3>
+        <p class="rem-hint" style="margin-bottom:0">افتح قائمة المتصفح واختر «إضافة إلى الشاشة الرئيسية» ليعمل التطبيق كتطبيق مستقل بواجهة كاملة وإشعارات أفضل.</p>
+      </div>
+      <div class="form-card">
+        <button class="btn green block" onclick="saveSettings()">💾 حفظ الإعدادات</button>
+      </div>
+    </div>
+
+    <!-- TAB: التذكيرات -->
+    <div id="mtab-reminders" style="display:none">
+      <div class="form-card">
+        <h3>🔔 إشعارات المتصفح</h3>
+        <p class="rem-hint">لعمل التذكيرات يجب السماح بالإشعارات أولاً. ملاحظة: تصل الإشعارات أثناء فتح التطبيق في المتصفح (قيود تقنية في المتصفحات)، لذا يُفضّل تثبيت التطبيق وتركه يعمل في الخلفية.</p>
+        <button class="btn orange block sm" onclick="enableNotifications()">🔔 تفعيل / التحقق من الإشعارات</button>
+        <button class="btn ghost block sm" style="margin-top:8px" onclick="testNotification()">📣 إرسال إشعار تجريبي</button>
+      </div>
+      <div class="form-card">
+        <h3>⏰ أوقات التذكير اليومي</h3>
+        <p class="rem-hint">أضف أي عدد من الأوقات (حتى 6). سيصلك تذكير يومياً في كل وقت تحدده.</p>
+        <div id="rem-times"></div>
+        <button class="btn purple block sm" onclick="addReminderTime()">➕ إضافة وقت تذكير</button>
+        <div class="field" style="margin-top:14px">
+          <label style="display:flex;align-items:center;justify-content:space-between">
+            <span>🧠 التذكير الذكي (يختار أفضل وقت تلقائياً)</span>
+            <label class="switch"><input type="checkbox" id="set-smart-reminder" onchange="saveReminderSettings()"><span class="knob"></span></label>
+          </label>
+        </div>
+      </div>
+      <div class="form-card hint-card">
+        <p class="rem-hint" style="margin-bottom:0">💡 نصيحة: التذكير يعرض عدد الكلمات بانتظار المراجعة والمتبقي لهدف اليوم، حتى تبقى متحمساً كل يوم!</p>
+      </div>
+    </div>
+
+    <!-- TAB: المراحل -->
+    <div id="mtab-levels" style="display:none">
+      <button class="btn purple block" onclick="openLevelEditor()">➕ إضافة مرحلة جديدة</button>
+      <div style="height:14px"></div>
+      <div id="levels-mng"></div>
+      <div id="hidden-restore"></div>
+      <div class="form-card hint-card" style="margin-top:14px">
+        <p class="rem-hint" style="margin-bottom:0">💡 يمكنك إنشاء مراحل خاصة بك (طبخ، رياضة، عمل...) وإضافة كلماتها مع أمثلة، أو لصق قائمة جاهزة بصيغة: <b>hello - مرحبا</b> كل سطر كلمة.</p>
+      </div>
+    </div>
+
+    <!-- TAB: البيانات -->
+    <div id="mtab-data" style="display:none">
+      <div class="form-card">
+        <h3>💾 نسخة احتياطية</h3>
+        <p class="rem-hint">صدّر كل بياناتك (التقدم، المراحل المخصصة، الكلمات) في ملف واحد، واستوردها على أي جهاز آخر لنقل تقدمك بالكامل.</p>
+        <button class="btn green block" onclick="exportAllData()">⬇️ تصدير نسخة احتياطية</button>
+        <button class="btn ghost block sm" style="margin-top:8px" onclick="document.getElementById('file-import').click()">⬆️ استيراد نسخة احتياطية</button>
+        <input type="file" id="file-import" accept=".json,application/json" style="display:none" onchange="importAllData(this)">
+      </div>
+      <div class="form-card">
+        <h3>📊 معلومات التخزين</h3>
+        <div id="storage-info" class="rem-hint" style="margin-bottom:0">…</div>
+      </div>
+      <div class="form-card">
+        <h3>⚠️ منطقة الخطر</h3>
+        <button class="btn ghost block sm" onclick="resetProgress()">🗑️ إعادة تعيين كل التقدم</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Bottom nav -->
+<nav class="bottom-nav">
+  <button class="nav-item active" data-nav="home" onclick="go('home',this)">
+    <span class="ic">🏠</span><span>الرئيسية</span>
+  </button>
+  <button class="nav-item" data-nav="tests" onclick="go('tests',this)">
+    <span class="ic">🎯</span><span>اختبارات</span>
+  </button>
+  <button class="nav-item" data-nav="review" onclick="go('review',this)">
+    <span class="ic">🧠</span><span>مراجعة</span>
+  </button>
+  <button class="nav-item" data-nav="dict" onclick="go('dict',this)">
+    <span class="ic">📖</span><span>القاموس</span>
+  </button>
+  <button class="nav-item" data-nav="stats" onclick="go('stats',this)">
+    <span class="ic">📊</span><span>إحصائي</span>
+  </button>
+  <button class="nav-item" data-nav="manage" onclick="go('manage',this)">
+    <span class="ic">⚙️</span><span>إعدادات</span>
+  </button>
+</nav>
+
+<!-- Feedback bar -->
+<div class="feedback" id="feedback">
+  <div class="fb-ic" id="fb-ic">✓</div>
+  <div class="fb-info">
+    <div class="fb-t" id="fb-t">إجابة صحيحة!</div>
+    <div class="fb-d" id="fb-d"></div>
+  </div>
+  <button class="fb-btn" id="fb-btn">متابعة</button>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-box" id="modal-box">
+    <div class="ic" id="modal-ic">🎉</div>
+    <h2 id="modal-title">تهانينا!</h2>
+    <p id="modal-msg"></p>
+    <div id="modal-extra"></div>
+    <div class="actions" id="modal-actions"></div>
+  </div>
+</div>
+<script>
+/* ============================================================
+   English Master - تطبيق تعلم الإنجليزية
+   منطق التطبيق الكامل
+   ============================================================ */
+
+/* ============================================================
+   📝 إضافة مراحل جديدة:
+   من داخل التطبيق: الإعدادات ← تبويب «📚 المراحل» ← «➕ إضافة مرحلة جديدة»
+   ثم افتح «📖 الكلمات» وأضف كلماتها يدوياً أو باللصق السريع
+   (كل سطر: hello - مرحبا). ويمكن للمطورين إضافة مراحل ثابتة هنا
+   في مصفوفة DEFAULT_LEVELS بنفس بنية المستويات أدناه.
+   ============================================================ */
+/* ---------- 1) البيانات الافتراضية ---------- */
+const DEFAULT_LEVELS = [
+  {
+    id:'l1', title:'التحيات الأساسية', emoji:'👋', color:'orange',
+    desc:'تعلم كيفية إلقاء التحية والتعريف بنفسك',
+    words:[
+      {id:'w1', en:'Hello', ar:'مرحباً', type:'phrase', emoji:'👋', exEn:'Hello, how are you?', exAr:'مرحباً، كيف حالك؟'},
+      {id:'w2', en:'Good morning', ar:'صباح الخير', type:'phrase', emoji:'🌅', exEn:'Good morning, teacher!', exAr:'صباح الخير، أيها المعلم!'},
+      {id:'w3', en:'Good night', ar:'تصبح على خير', type:'phrase', emoji:'🌙', exEn:'Good night, see you tomorrow.', exAr:'تصبح على خير، أراك غداً.'},
+      {id:'w4', en:'Thank you', ar:'شكراً لك', type:'phrase', emoji:'🙏', exEn:'Thank you for your help.', exAr:'شكراً لك على مساعدتك.'},
+      {id:'w5', en:'Sorry', ar:'آسف', type:'phrase', emoji:'😔', exEn:'Sorry, I am late.', exAr:'آسف، لقد تأخرت.'},
+      {id:'w6', en:'Please', ar:'من فضلك', type:'phrase', emoji:'🤲', exEn:'Please, give me water.', exAr:'من فضلك، أعطني ماء.'},
+      {id:'w7', en:'Welcome', ar:'أهلاً وسهلاً', type:'phrase', emoji:'🤗', exEn:'Welcome to our home.', exAr:'أهلاً وسهلاً بكم في بيتنا.'},
+      {id:'w8', en:'Goodbye', ar:'وداعاً', type:'phrase', emoji:'👋', exEn:'Goodbye, see you soon.', exAr:'وداعاً، أراك قريباً.'},
+    ]
+  },
+  {
+    id:'l2', title:'الأرقام', emoji:'🔢', color:'purple',
+    desc:'احفظ الأرقام من 1 إلى 10',
+    words:[
+      {id:'w1', en:'One', ar:'واحد', type:'number', emoji:'1️⃣', exEn:'I have one cat.', exAr:'لدي قط واحد.'},
+      {id:'w2', en:'Two', ar:'اثنان', type:'number', emoji:'2️⃣', exEn:'Two birds are flying.', exAr:'طائران يحلقان.'},
+      {id:'w3', en:'Three', ar:'ثلاثة', type:'number', emoji:'3️⃣', exEn:'Three apples on the table.', exAr:'ثلاث تفاحات على الطاولة.'},
+      {id:'w4', en:'Four', ar:'أربعة', type:'number', emoji:'4️⃣', exEn:'Four seasons in a year.', exAr:'أربعة فصول في السنة.'},
+      {id:'w5', en:'Five', ar:'خمسة', type:'number', emoji:'5️⃣', exEn:'Five fingers on a hand.', exAr:'خمسة أصابع في اليد.'},
+      {id:'w6', en:'Six', ar:'ستة', type:'number', emoji:'6️⃣', exEn:'Six days of work.', exAr:'ستة أيام من العمل.'},
+      {id:'w7', en:'Seven', ar:'سبعة', type:'number', emoji:'7️⃣', exEn:'Seven colors of the rainbow.', exAr:'سبعة ألوان قوس قزح.'},
+      {id:'w8', en:'Eight', ar:'ثمانية', type:'number', emoji:'8️⃣', exEn:'Eight hours of sleep.', exAr:'ثماني ساعات نوم.'},
+      {id:'w9', en:'Nine', ar:'تسعة', type:'number', emoji:'9️⃣', exEn:'Nine players in a team.', exAr:'تسعة لاعبين في الفريق.'},
+      {id:'w10', en:'Ten', ar:'عشرة', type:'number', emoji:'🔟', exEn:'Ten fingers and toes.', exAr:'عشرة أصابع اليدين والقدمين.'},
+    ]
+  },
+  {
+    id:'l3', title:'الألوان', emoji:'🎨', color:'green',
+    desc:'تعرّف على الألوان الأساسية',
+    words:[
+      {id:'w1', en:'Red', ar:'أحمر', type:'adjective', emoji:'🔴', exEn:'The apple is red.', exAr:'التفاحة حمراء.'},
+      {id:'w2', en:'Blue', ar:'أزرق', type:'adjective', emoji:'🔵', exEn:'The sky is blue.', exAr:'السماء زرقاء.'},
+      {id:'w3', en:'Green', ar:'أخضر', type:'adjective', emoji:'🟢', exEn:'The grass is green.', exAr:'العشب أخضر.'},
+      {id:'w4', en:'Yellow', ar:'أصفر', type:'adjective', emoji:'🟡', exEn:'The sun is yellow.', exAr:'الشمس صفراء.'},
+      {id:'w5', en:'Black', ar:'أسود', type:'adjective', emoji:'⚫', exEn:'The cat is black.', exAr:'القط أسود.'},
+      {id:'w6', en:'White', ar:'أبيض', type:'adjective', emoji:'⚪', exEn:'The snow is white.', exAr:'الثلج أبيض.'},
+      {id:'w7', en:'Orange', ar:'برتقالي', type:'adjective', emoji:'🟠', exEn:'The orange fruit is orange.', exAr:'ثمرة البرتقال برتقالية.'},
+      {id:'w8', en:'Purple', ar:'بنفسجي', type:'adjective', emoji:'🟣', exEn:'The flower is purple.', exAr:'الزهرة بنفسجية.'},
+    ]
+  },
+  {
+    id:'l4', title:'العائلة', emoji:'👨‍👩‍👧', color:'blue',
+    desc:'كلمات أفراد العائلة',
+    words:[
+      {id:'w1', en:'Father', ar:'أب', type:'noun', emoji:'👨', exEn:'My father is a doctor.', exAr:'أبي طبيب.'},
+      {id:'w2', en:'Mother', ar:'أم', type:'noun', emoji:'👩', exEn:'My mother is kind.', exAr:'أمي طيبة.'},
+      {id:'w3', en:'Brother', ar:'أخ', type:'noun', emoji:'👦', exEn:'My brother is tall.', exAr:'أخي طويل.'},
+      {id:'w4', en:'Sister', ar:'أخت', type:'noun', emoji:'👧', exEn:'My sister is young.', exAr:'أختي صغيرة.'},
+      {id:'w5', en:'Son', ar:'ابن', type:'noun', emoji:'🧒', exEn:'He has one son.', exAr:'لديه ابن واحد.'},
+      {id:'w6', en:'Daughter', ar:'ابنة', type:'noun', emoji:'👧', exEn:'She has two daughters.', exAr:'لديها ابنتان.'},
+      {id:'w7', en:'Grandfather', ar:'جد', type:'noun', emoji:'👴', exEn:'My grandfather is wise.', exAr:'جدي حكيم.'},
+      {id:'w8', en:'Grandmother', ar:'جدة', type:'noun', emoji:'👵', exEn:'My grandmother bakes cakes.', exAr:'جدتي تخبز الكعك.'},
+    ]
+  },
+  {
+    id:'l5', title:'الطعام', emoji:'🍽️', color:'gold',
+    desc:'أنواع الطعام الشائعة',
+    words:[
+      {id:'w1', en:'Bread', ar:'خبز', type:'noun', emoji:'🍞', exEn:'I eat bread for breakfast.', exAr:'آكل خبزاً في الفطور.'},
+      {id:'w2', en:'Milk', ar:'حليب', type:'noun', emoji:'🥛', exEn:'I drink milk every day.', exAr:'أشرب الحليب كل يوم.'},
+      {id:'w3', en:'Water', ar:'ماء', type:'noun', emoji:'💧', exEn:'Water is essential for life.', exAr:'الماء أساسي للحياة.'},
+      {id:'w4', en:'Apple', ar:'تفاحة', type:'noun', emoji:'🍎', exEn:'An apple a day keeps the doctor away.', exAr:'تفاحة في اليوم تبقي الطبيب بعيداً.'},
+      {id:'w5', en:'Banana', ar:'موزة', type:'noun', emoji:'🍌', exEn:'Monkeys love bananas.', exAr:'القرود تحب الموز.'},
+      {id:'w6', en:'Rice', ar:'أرز', type:'noun', emoji:'🍚', exEn:'We eat rice with chicken.', exAr:'نأكل الأرز مع الدجاج.'},
+      {id:'w7', en:'Chicken', ar:'دجاج', type:'noun', emoji:'🍗', exEn:'I like grilled chicken.', exAr:'أحب الدجاج المشوي.'},
+      {id:'w8', en:'Egg', ar:'بيضة', type:'noun', emoji:'🥚', exEn:'I eat two eggs for breakfast.', exAr:'آكل بيضتين في الفطور.'},
+    ]
+  },
+  /* === مستويات إضافية كمثال على إمكانية التخصيص === */
+  {
+    id:'l6', title:'في المستشفى', emoji:'🏥', color:'red',
+    desc:'كلمات طبية ومصطلحات المستشفى',
+    words:[
+      {id:'w1', en:'Doctor', ar:'طبيب', type:'noun', emoji:'👨‍⚕️', exEn:'The doctor will see you now.', exAr:'الطبيب سيراك الآن.'},
+      {id:'w2', en:'Nurse', ar:'ممرض', type:'noun', emoji:'👩‍⚕️', exEn:'The nurse gave me medicine.', exAr:'الممرضة أعطتني الدواء.'},
+      {id:'w3', en:'Hospital', ar:'مستشفى', type:'noun', emoji:'🏥', exEn:'He went to the hospital.', exAr:'ذهب إلى المستشفى.'},
+      {id:'w4', en:'Medicine', ar:'دواء', type:'noun', emoji:'💊', exEn:'Take this medicine twice a day.', exAr:'خذ هذا الدواء مرتين يومياً.'},
+      {id:'w5', en:'Patient', ar:'مريض', type:'noun', emoji:'🤒', exEn:'The patient is sleeping.', exAr:'المريض نائم.'},
+      {id:'w6', en:'Pain', ar:'ألم', type:'noun', emoji:'😣', exEn:'I have a pain in my back.', exAr:'لدي ألم في ظهري.'},
+      {id:'w7', en:'Blood', ar:'دم', type:'noun', emoji:'🩸', exEn:'They took a blood sample.', exAr:'أخذوا عينة دم.'},
+      {id:'w8', en:'Health', ar:'صحة', type:'noun', emoji:'💚', exEn:'Health is more important than wealth.', exAr:'الصحة أهم من الثروة.'},
+      {id:'w9', en:'Sick', ar:'مريض', type:'adjective', emoji:'🤢', exEn:'I feel sick today.', exAr:'أشعر بالمرض اليوم.'},
+      {id:'w10', en:'Appointment', ar:'موعد', type:'noun', emoji:'📅', exEn:'I have a doctor appointment.', exAr:'لدي موعد مع الطبيب.'},
+    ]
+  },
+  {
+    id:'l7', title:'في السوق', emoji:'🛒', color:'blue',
+    desc:'كلمات التسوق والمشتريات',
+    words:[
+      {id:'w1', en:'Buy', ar:'يشتري', type:'verb', emoji:'💳', exEn:'I want to buy a new phone.', exAr:'أريد أن أشتري هاتفاً جديداً.'},
+      {id:'w2', en:'Sell', ar:'يبيع', type:'verb', emoji:'🏷️', exEn:'They sell fresh fruits.', exAr:'يبيعون فواكه طازجة.'},
+      {id:'w3', en:'Price', ar:'سعر', type:'noun', emoji:'💲', exEn:'What is the price of this?', exAr:'ما سعر هذا؟'},
+      {id:'w4', en:'Money', ar:'نقود', type:'noun', emoji:'💵', exEn:'I do not have enough money.', exAr:'لا أمتلك نقوداً كافية.'},
+      {id:'w5', en:'Shop', ar:'متجر', type:'noun', emoji:'🏬', exEn:'The shop is open now.', exAr:'المتجر مفتوح الآن.'},
+      {id:'w6', en:'Market', ar:'سوق', type:'noun', emoji:'🏪', exEn:'We go to the market every Friday.', exAr:'نذهب إلى السوق كل جمعة.'},
+      {id:'w7', en:'Cheap', ar:'رخيص', type:'adjective', emoji:'🪙', exEn:'This shirt is very cheap.', exAr:'هذا القميص رخيص جداً.'},
+      {id:'w8', en:'Expensive', ar:'غالي', type:'adjective', emoji:'💰', exEn:'Gold is expensive.', exAr:'الذهب غالٍ.'},
+      {id:'w9', en:'Discount', ar:'تخفيض', type:'noun', emoji:'🏷️', exEn:'There is a 50% discount.', exAr:'يوجد تخفيض 50%.'},
+      {id:'w10', en:'Receipt', ar:'فاتورة', type:'noun', emoji:'🧾', exEn:'Keep the receipt, please.', exAr:'احتفظ بالفاتورة من فضلك.'},
+    ]
+  },
+  {
+    id:'l8', title:'في المطار', emoji:'✈️', color:'purple',
+    desc:'كلمات السفر والمطار',
+    words:[
+      {id:'w1', en:'Airport', ar:'مطار', type:'noun', emoji:'🛫', exEn:'We arrived at the airport early.', exAr:'وصلنا المطار مبكراً.'},
+      {id:'w2', en:'Plane', ar:'طائرة', type:'noun', emoji:'✈️', exEn:'The plane is taking off.', exAr:'الطائرة تقلع.'},
+      {id:'w3', en:'Passport', ar:'جواز سفر', type:'noun', emoji:'📔', exEn:'Show me your passport, please.', exAr:'أرني جواز سفرك من فضلك.'},
+      {id:'w4', en:'Ticket', ar:'تذكرة', type:'noun', emoji:'🎫', exEn:'I lost my ticket.', exAr:'أضعت تذكرتي.'},
+      {id:'w5', en:'Luggage', ar:'أمتعة', type:'noun', emoji:'🧳', exEn:'My luggage is heavy.', exAr:'أمتعتي ثقيلة.'},
+      {id:'w6', en:'Board', ar:'يصعد', type:'verb', emoji:'🚪', exEn:'We are boarding now.', exAr:'نصعد الطائرة الآن.'},
+      {id:'w7', en:'Departure', ar:'مغادرة', type:'noun', emoji:'📤', exEn:'The departure time is 9 AM.', exAr:'وقت المغادرة 9 صباحاً.'},
+      {id:'w8', en:'Arrival', ar:'وصول', type:'noun', emoji:'📥', exEn:'The arrival was delayed.', exAr:'تأخر الوصول.'},
+      {id:'w9', en:'Gate', ar:'بوابة', type:'noun', emoji:'🚧', exEn:'Go to gate 5.', exAr:'اذهب إلى البوابة 5.'},
+      {id:'w10', en:'Flight', ar:'رحلة', type:'noun', emoji:'🛩️', exEn:'The flight was long.', exAr:'كانت الرحلة طويلة.'},
+    ]
+  },
+  {
+    id:'l9', title:'الأفعال الشائعة', emoji:'🏃', color:'orange',
+    desc:'أهم الأفعال اليومية في الحوار',
+    words:[
+      {id:'w1', en:'Run', ar:'يركض', type:'verb', emoji:'🏃', exEn:'I run every morning.', exAr:'أركض كل صباح.'},
+      {id:'w2', en:'Walk', ar:'يمشي', type:'verb', emoji:'🚶', exEn:'We walk to school.', exAr:'نمشي إلى المدرسة.'},
+      {id:'w3', en:'Eat', ar:'يأكل', type:'verb', emoji:'🍴', exEn:'They eat lunch together.', exAr:'يأكلون الغداء معاً.'},
+      {id:'w4', en:'Drink', ar:'يشرب', type:'verb', emoji:'🥤', exEn:'Drink more water.', exAr:'اشرب ماءً أكثر.'},
+      {id:'w5', en:'Sleep', ar:'ينام', type:'verb', emoji:'😴', exEn:'Children sleep early.', exAr:'الأطفال ينامون مبكراً.'},
+      {id:'w6', en:'Read', ar:'يقرأ', type:'verb', emoji:'📖', exEn:'She reads a story.', exAr:'هي تقرأ قصة.'},
+      {id:'w7', en:'Write', ar:'يكتب', type:'verb', emoji:'✍️', exEn:'I write in my notebook.', exAr:'أكتب في دفتري.'},
+      {id:'w8', en:'Speak', ar:'يتحدث', type:'verb', emoji:'💬', exEn:'Speak slowly, please.', exAr:'تحدث ببطء من فضلك.'},
+      {id:'w9', en:'Listen', ar:'يستمع', type:'verb', emoji:'👂', exEn:'Listen to the teacher.', exAr:'استمع إلى المعلم.'},
+      {id:'w10', en:'Play', ar:'يلعب', type:'verb', emoji:'⚽', exEn:'We play football on Friday.', exAr:'نلعب كرة القدم يوم الجمعة.'},
+    ]
+  },
+  {
+    id:'l10', title:'الوقت والأيام', emoji:'⏰', color:'gold',
+    desc:'كلمات الوقت والأيام والشهور',
+    words:[
+      {id:'w1', en:'Today', ar:'اليوم', type:'adverb', emoji:'📅', exEn:'Today is Monday.', exAr:'اليوم هو الاثنين.'},
+      {id:'w2', en:'Tomorrow', ar:'غداً', type:'adverb', emoji:'➡️', exEn:'See you tomorrow.', exAr:'أراك غداً.'},
+      {id:'w3', en:'Yesterday', ar:'أمس', type:'adverb', emoji:'⬅️', exEn:'It rained yesterday.', exAr:'مطرت أمس.'},
+      {id:'w4', en:'Week', ar:'أسبوع', type:'noun', emoji:'🗓️', exEn:'A week has seven days.', exAr:'الأسبوع له سبعة أيام.'},
+      {id:'w5', en:'Month', ar:'شهر', type:'noun', emoji:'📆', exEn:'This month is short.', exAr:'هذا الشهر قصير.'},
+      {id:'w6', en:'Year', ar:'سنة', type:'noun', emoji:'🎆', exEn:'Happy new year!', exAr:'سنة جديدة سعيدة!'},
+      {id:'w7', en:'Hour', ar:'ساعة', type:'noun', emoji:'🕐', exEn:'Wait for one hour.', exAr:'انتظر ساعة واحدة.'},
+      {id:'w8', en:'Minute', ar:'دقيقة', type:'noun', emoji:'⏱️', exEn:'Five minutes only.', exAr:'خمس دقائق فقط.'},
+      {id:'w9', en:'Morning', ar:'صباح', type:'noun', emoji:'🌅', exEn:'I study in the morning.', exAr:'أدرس في الصباح.'},
+      {id:'w10', en:'Evening', ar:'مساء', type:'noun', emoji:'🌆', exEn:'We walk in the evening.', exAr:'نمشي في المساء.'},
+    ]
+  },
+  {
+    id:'l11', title:'الطقس والطبيعة', emoji:'⛅', color:'blue',
+    desc:'وصف الطقس وعناصر الطبيعة',
+    words:[
+      {id:'w1', en:'Sun', ar:'شمس', type:'noun', emoji:'☀️', exEn:'The sun is bright.', exAr:'الشمس ساطعة.'},
+      {id:'w2', en:'Rain', ar:'مطر', type:'noun', emoji:'🌧️', exEn:'I like the rain.', exAr:'أحب المطر.'},
+      {id:'w3', en:'Cloud', ar:'سحابة', type:'noun', emoji:'☁️', exEn:'The sky is full of clouds.', exAr:'السماء مليئة بالسحب.'},
+      {id:'w4', en:'Wind', ar:'ريح', type:'noun', emoji:'🌬️', exEn:'The wind is strong today.', exAr:'الريح قوية اليوم.'},
+      {id:'w5', en:'Snow', ar:'ثلج', type:'noun', emoji:'❄️', exEn:'Snow is falling now.', exAr:'الثلج يتساقط الآن.'},
+      {id:'w6', en:'Hot', ar:'حار', type:'adjective', emoji:'🔥', exEn:'Summer is very hot.', exAr:'الصيف حار جداً.'},
+      {id:'w7', en:'Cold', ar:'بارد', type:'adjective', emoji:'🥶', exEn:'The water is cold.', exAr:'الماء بارد.'},
+      {id:'w8', en:'Tree', ar:'شجرة', type:'noun', emoji:'🌳', exEn:'A big tree in the garden.', exAr:'شجرة كبيرة في الحديقة.'},
+      {id:'w9', en:'Flower', ar:'زهرة', type:'noun', emoji:'🌸', exEn:'What a beautiful flower!', exAr:'يا له من زهرة جميلة!'},
+      {id:'w10', en:'Sea', ar:'بحر', type:'noun', emoji:'🌊', exEn:'We swam in the sea.', exAr:'سبحنا في البحر.'},
+    ]
+  },
+  {
+    id:'l12', title:'الملابس', emoji:'👕', color:'red',
+    desc:'كلمات الملابس والأزياء',
+    words:[
+      {id:'w1', en:'Shirt', ar:'قميص', type:'noun', emoji:'👕', exEn:'This shirt is new.', exAr:'هذا القميص جديد.'},
+      {id:'w2', en:'Pants', ar:'بنطال', type:'noun', emoji:'👖', exEn:'My pants are blue.', exAr:'بنطالي أزرق.'},
+      {id:'w3', en:'Shoes', ar:'حذاء', type:'noun', emoji:'👟', exEn:'Clean your shoes.', exAr:'نظف حذاءك.'},
+      {id:'w4', en:'Hat', ar:'قبعة', type:'noun', emoji:'🧢', exEn:'He wears a white hat.', exAr:'هو يلبس قبعة بيضاء.'},
+      {id:'w5', en:'Dress', ar:'فستان', type:'noun', emoji:'👗', exEn:'She bought a nice dress.', exAr:'اشترت فستاناً جميلاً.'},
+      {id:'w6', en:'Jacket', ar:'جاكيت', type:'noun', emoji:'🧥', exEn:'Take your jacket.', exAr:'خذ جاكيتك.'},
+      {id:'w7', en:'Socks', ar:'جوارب', type:'noun', emoji:'🧦', exEn:'I need new socks.', exAr:'أحتاج جوارب جديدة.'},
+      {id:'w8', en:'Glasses', ar:'نظارة', type:'noun', emoji:'👓', exEn:'I read with glasses.', exAr:'أقرأ بالنظارة.'},
+    ]
+  }
+];
+
+const COLOR_GRADS = {
+  orange:'linear-gradient(135deg,#ff8a5b 0%,#ff6b35 50%,#e5491b 100%)',
+  purple:'linear-gradient(135deg,#a29bfe 0%,#6c5ce7 50%,#4834d4 100%)',
+  green: 'linear-gradient(135deg,#55efc4 0%,#00b894 50%,#008066 100%)',
+  blue: 'linear-gradient(135deg,#74b9ff 0%,#0984e3 50%,#064d8c 100%)',
+  gold:  'linear-gradient(135deg,#ffe066 0%,#fdcb6e 50%,#f39c12 100%)',
+  red:   'linear-gradient(135deg,#ff8a80 0%,#ff5e57 50%,#c0392b 100%)',
+};
+const LEVEL_TITLES = ['مبتدئ','متعلم','متقن','محترف','خبير','أسطورة','سيد','معلم'];
+
+const STORAGE_KEY = "english_master_v1";
+const state = {
+  xp:0,
+  streak:0,
+  energy:10,
+  lastVisit:null,
+  hearts:3,
+  completedLevels:[],
+  wordProgress:{}, // wordId -> {stage, lastReview, correct, wrong}
+  levels:[], // merged default + custom
+  settings:{rate:0.9, voice:null, dailyGoal:10, smartReminder:true, darkMode:false, autoSpeak:true},
+  weekActivity:[0,0,0,0,0,0,0], // activity counts per day
+  achievements:[],
+  // ميزات جديدة
+  dailyProgress:{date:null, count:0}, // تقدم الهدف اليومي
+  dailyChallenge:null, // {date, type, target, progress, completed, reward}
+  streakFreeze:{available:1, lastRefill:null}, // حماية السلسلة
+  wordOfDay:null, // {date, levelId, wordId}
+  activityLog:{}, // {"YYYY-MM-DD": count} - خريطة النشاط الحرارية
+  hiddenLevels:[], // معرفات المستويات الافتراضية التي حذفها المستخدم
+  reminders:{enabled:true, times:["20:00"], fired:{}}, // أوقات التذكير اليومي
+  // lesson state
+  lesson:null,
+};
+
+/* ---------- 2) الحفظ والتحميل ---------- */
+function saveState(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(buildSavePayload()));
+}
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return false;
+    const d = JSON.parse(raw);
+    state.xp = d.xp||0;
+    state.streak = d.streak||0;
+    state.energy = d.energy!=null?d.energy:5;
+    state.lastVisit = d.lastVisit;
+    state.completedLevels = d.completedLevels||[];
+    state.wordProgress = d.wordProgress||{};
+    state.settings = Object.assign(state.settings, d.settings||{});
+    state.weekActivity = d.weekActivity||[0,0,0,0,0,0,0];
+    state.achievements = d.achievements||[];
+    state.dailyProgress = d.dailyProgress||{date:null,count:0};
+    state.dailyChallenge = d.dailyChallenge||null;
+    state.streakFreeze = d.streakFreeze||{available:1,lastRefill:null};
+    state.wordOfDay = d.wordOfDay||null;
+    state.activityLog = d.activityLog||{};
+    state.hiddenLevels = d.hiddenLevels||[];
+    state.reminders = d.reminders||{enabled:true, times:["20:00"], fired:{}};
+    if(!Array.isArray(state.reminders.times) || !state.reminders.times.length) state.reminders.times = ["20:00"];
+    state.reminders.fired = state.reminders.fired||{};
+    // دمج: الافتراضي (ما لم يُحذف أو عُدّل) + المراحل المخصصة
+    const editedMap = {};
+    (d.levels||[]).forEach(l=>{ if(l.edited) editedMap[l.id] = l; });
+    const customs = (d.levels||[]).filter(l=>l.custom);
+    state.levels = DEFAULT_LEVELS
+      .filter(l=>!state.hiddenLevels.includes(l.id))
+      .map(l=> editedMap[l.id] || l)
+      .concat(customs);
+    return true;
+  }catch(e){console.warn("load error",e); return false;}
+}
+
+/* ---------- 3) أدوات ---------- */
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+function $(id){return document.getElementById(id);}
+function toast(msg, type=""){
+  const wrap = $("toasts");
+  const t = document.createElement("div");
+  t.className = "toast "+type;
+  t.textContent = msg;
+  wrap.appendChild(t);
+  setTimeout(()=>t.remove(), 3000);
+}
+function getUserLevel(){
+  // كل 100 XP = مستوى
+  return Math.floor(state.xp/100)+1;
+}
+function getLevelTitle(lvl){
+  return LEVEL_TITLES[Math.min(lvl-1, LEVEL_TITLES.length-1)];
+}
+function isSameDay(d1, d2){
+  const a = new Date(d1), b = new Date(d2);
+  return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+}
+function isYesterday(d1, d2){
+  const a = new Date(d1), b = new Date(d2);
+  b.setDate(b.getDate()-1);
+  return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+}
+
+/* ---------- 4) التنقل ---------- */
+function go(screen, navBtn){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  $("screen-"+screen).classList.add("active");
+  if(navBtn){
+    document.querySelectorAll(".nav-item").forEach(n=>n.classList.remove("active"));
+    navBtn.classList.add("active");
+  }
+  if(screen==="home") renderHome();
+  if(screen==="tests") renderTests();
+  if(screen==="review") renderReview();
+  if(screen==="stats") renderStats();
+  if(screen==="dict") renderDict();
+  if(screen==="manage") renderManage();
+  updateTopStats();
+}
+
+/* ---------- 5) التحديث العرضي ---------- */
+function updateTopStats(){
+  $("tp-streak").textContent = state.streak;
+  $("tp-energy").textContent = state.energy;
+  $("tp-xp").textContent = state.xp;
+}
+
+/* ---------- شراء الطاقة بـ XP ---------- */
+function buyEnergy(){
+  const COST = 50; // 50 XP لكل 5 طاقة
+  if(state.xp < COST){
+    toast(`⚠️ تحتاج ${COST} XP لشراء طاقة. لديك ${state.xp} XP`,"error");
+    return;
+  }
+  if(!confirm(`شراء 5 طاقة مقابل ${COST} XP؟\nلديك حالياً ${state.xp} XP و ${state.energy} طاقة`)){
+    return;
+  }
+  state.xp -= COST;
+  state.energy += 5;
+  saveState();
+  updateTopStats();
+  toast(`✅ تم شراء 5 طاقة! لديك الآن ${state.energy} طاقة`,"success");
+  sfx("correct");
+}
+
+/* ---------- 6) الصوت (Web Speech API) ---------- */
+let voices = [];
+function loadVoices(){
+  voices = speechSynthesis.getVoices().filter(v=>v.lang.startsWith("en"));
+  const sel = $("set-voice");
+  if(sel){
+    sel.innerHTML = "";
+    voices.forEach((v,i)=>{
+      const o = document.createElement("option");
+      o.value = i; o.textContent = v.name + " ("+v.lang+")";
+      sel.appendChild(o);
+    });
+    if(state.settings.voice!=null) sel.value = state.settings.voice;
+  }
+}
+if("speechSynthesis" in window){
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+function speak(text, slow=false){
+  if(!("speechSynthesis" in window)) {toast("⚠️ المتصفح لا يدعم النطق","error"); return;}
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "en-US";
+  u.rate = slow?0.6:state.settings.rate;
+  if(voices.length && state.settings.voice!=null && voices[state.settings.voice]){
+    u.voice = voices[state.settings.voice];
+  }
+  u.onstart = ()=> $("speaking").classList.add("active");
+  u.onend = ()=> $("speaking").classList.remove("active");
+  u.onerror = ()=> $("speaking").classList.remove("active");
+  speechSynthesis.speak(u);
+}
+function stopSpeak(){
+  if("speechSynthesis" in window) speechSynthesis.cancel();
+  $("speaking").classList.remove("active");
+}
+
+/* ---------- 7) محرك صوتي بسيط (Web Audio) ---------- */
+let actx = null;
+function sfx(type){
+  try{
+    if(!actx) actx = new (window.AudioContext||window.webkitAudioContext)();
+    const o = actx.createOscillator();
+    const g = actx.createGain();
+    o.connect(g); g.connect(actx.destination);
+    const t = actx.currentTime;
+    if(type==="correct"){
+      o.frequency.setValueAtTime(523,t);
+      o.frequency.setValueAtTime(659,t+0.08);
+      o.frequency.setValueAtTime(784,t+0.16);
+      g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(0.2,t+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+0.4);
+      o.type="triangle"; o.start(t); o.stop(t+0.4);
+    } else if(type==="wrong"){
+      o.frequency.setValueAtTime(311,t);
+      o.frequency.exponentialRampToValueAtTime(155,t+0.3);
+      g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(0.18,t+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+0.4);
+      o.type="sawtooth"; o.start(t); o.stop(t+0.4);
+    } else if(type==="click"){
+      o.frequency.setValueAtTime(800,t);
+      g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(0.1,t+0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+0.06);
+      o.type="square"; o.start(t); o.stop(t+0.06);
+    } else if(type==="levelup"){
+      [523,659,784,1047].forEach((f,i)=>{
+        const oo = actx.createOscillator(), gg = actx.createGain();
+        oo.connect(gg); gg.connect(actx.destination);
+        oo.frequency.setValueAtTime(f,t+i*0.1);
+        gg.gain.setValueAtTime(0.0001,t+i*0.1);
+        gg.gain.exponentialRampToValueAtTime(0.25,t+i*0.1+0.02);
+        gg.gain.exponentialRampToValueAtTime(0.0001,t+i*0.1+0.4);
+        oo.type="triangle"; oo.start(t+i*0.1); oo.stop(t+i*0.1+0.4);
+      });
+    } else if(type==="complete"){
+      [523,659,784,1047,1319].forEach((f,i)=>{
+        const oo = actx.createOscillator(), gg = actx.createGain();
+        oo.connect(gg); gg.connect(actx.destination);
+        oo.frequency.setValueAtTime(f,t+i*0.12);
+        gg.gain.setValueAtTime(0.0001,t+i*0.12);
+        gg.gain.exponentialRampToValueAtTime(0.3,t+i*0.12+0.02);
+        gg.gain.exponentialRampToValueAtTime(0.0001,t+i*0.12+0.5);
+        oo.type="triangle"; oo.start(t+i*0.12); oo.stop(t+i*0.12+0.5);
+      });
+    }
+  }catch(e){}
+}
+
+/* ---------- 8) الكونفيتي ---------- */
+const cc = $("confetti");
+const ccx = cc.getContext("2d");
+let confs = [];
+let confAnim = false;
+function sizeCC(){cc.width=innerWidth; cc.height=innerHeight;}
+sizeCC(); addEventListener("resize", sizeCC);
+function fireConfetti(big=false){
+  const colors = ["#ff6b35","#6c5ce7","#00b894","#fdcb6e","#0984e3","#fff"];
+  const n = big?150:60;
+  for(let i=0;i<n;i++){
+    confs.push({
+      x:Math.random()*cc.width, y:-20-Math.random()*100,
+      vx:(Math.random()-0.5)*4, vy:2+Math.random()*4,
+      size:5+Math.random()*6, color:colors[Math.floor(Math.random()*colors.length)],
+      rot:Math.random()*Math.PI*2, vrot:(Math.random()-0.5)*0.3,
+      life:200+Math.random()*100, shape:Math.random()>0.5?"r":"c",
+    });
+  }
+  if(!confAnim) confLoop();
+}
+function confLoop(){
+  confAnim = true;
+  ccx.clearRect(0,0,cc.width,cc.height);
+  confs = confs.filter(p=>p.life>0 && p.y<cc.height+50);
+  confs.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy; p.rot+=p.vrot; p.life--;
+    p.vy += 0.05;
+    ccx.save(); ccx.translate(p.x,p.y); ccx.rotate(p.rot);
+    ccx.fillStyle = p.color;
+    if(p.shape==="r") ccx.fillRect(-p.size/2,-p.size/2,p.size,p.size*0.5);
+    else {ccx.beginPath(); ccx.arc(0,0,p.size/2,0,Math.PI*2); ccx.fill();}
+    ccx.restore();
+  });
+  if(confs.length>0) requestAnimationFrame(confLoop);
+  else {confAnim=false; ccx.clearRect(0,0,cc.width,cc.height);}
+}
+
+/* ---------- 9) إدارة الكلمات (Leitner) ---------- */
+function getWordStage(wordId){
+  return state.wordProgress[wordId] ? state.wordProgress[wordId].stage : 0;
+}
+function setWordResult(wordId, correct){
+  if(!state.wordProgress[wordId]){
+    state.wordProgress[wordId] = {stage:0, lastReview:Date.now(), correct:0, wrong:0};
+  }
+  const p = state.wordProgress[wordId];
+  const wasNew = p.stage === 0;
+  p.lastReview = Date.now();
+  if(correct){
+    p.correct++;
+    p.stage = Math.min(5, p.stage+1);
+    // تحديث الهدف اليومي والتحدي (defensive - لا تكسر التدفق الأساسي)
+    try {
+      updateDailyProgress(1);
+      updateDailyChallenge("correct_total", 1);
+      updateDailyChallenge("correct_streak", 1);
+      if(wasNew) updateDailyChallenge("learn_words", 1);
+    } catch(e){console.warn("daily update error",e);}
+  } else {
+    p.wrong++;
+    p.stage = Math.max(0, p.stage-1);
+  }
+}
+function getDueReviewWords(){
+  const now = Date.now();
+  // مراحل التكرار المتباعد (أيام)
+  const intervals = [0, 1, 2, 4, 7, 14];
+  const due = [];
+  Object.keys(state.wordProgress).forEach(id=>{
+    const p = state.wordProgress[id];
+    const interval = intervals[p.stage] || 0;
+    const dueTime = p.lastReview + interval*24*60*60*1000;
+    if(p.stage === 0 || now >= dueTime){
+      // find word
+      let word = null;
+      for(const lvl of state.levels){
+        const w = lvl.words.find(x=>lvl.id+"_"+x.id === id);
+        if(w){word = w; break;}
+      }
+      // fallback: try just id match
+      if(!word){
+        for(const lvl of state.levels){
+          const w = lvl.words.find(x=>x.id === id);
+          if(w){word = w; break;}
+        }
+      }
+      if(word) due.push({id, word, stage:p.stage});
+    }
+  });
+  return due;
+}
+
+/* ---------- 10) معالجة الزيارة اليومية ---------- */
+function handleDailyVisit(){
+  try {
+    const now = new Date();
+    const todayStr = now.toDateString();
+    
+    // تحقق من حماية السلسلة (streak freeze) - تُعبأ كل أسبوع
+    try {
+      const weekAgo = new Date(now);
+      weekAgo.setDate(weekAgo.getDate()-7);
+      if(!state.streakFreeze.lastRefill || new Date(state.streakFreeze.lastRefill) < weekAgo){
+        if(state.streakFreeze.available < 1){
+          state.streakFreeze.available = 1;
+        }
+        state.streakFreeze.lastRefill = now.getTime();
+      }
+    } catch(e){console.warn("streak freeze error",e);}
+    
+    if(!state.lastVisit){
+      state.streak = 1;
+    } else {
+      if(!isSameDay(state.lastVisit, now)){
+        if(isYesterday(state.lastVisit, now)){
+          state.streak++;
+        } else {
+          state.streak = 1;
+        }
+      }
+    }
+    state.lastVisit = now.getTime();
+    
+    // تعبئة الطاقة لليوم الجديد
+    if(state._lastEnergyDate !== todayStr){
+      state.energy = 10;
+      state._lastEnergyDate = todayStr;
+    }
+    
+    // إعادة تعيين الهدف اليومي في بداية اليوم (safe)
+    try {
+      if(!state.dailyProgress || !state.dailyProgress.date || new Date(state.dailyProgress.date).toDateString() !== todayStr){
+        state.dailyProgress = {date: now.getTime(), count: 0};
+      }
+      // توليد التحدي اليومي الجديد
+      if(!state.dailyChallenge || new Date(state.dailyChallenge.date).toDateString() !== todayStr){
+        state.dailyChallenge = generateDailyChallenge(now);
+      }
+      // اختيار كلمة اليوم
+      if(!state.wordOfDay || new Date(state.wordOfDay.date).toDateString() !== todayStr){
+        state.wordOfDay = pickWordOfDay(now);
+      }
+    } catch(e){console.warn("daily setup error",e);}
+    
+    saveState();
+    // جدولة التذكير الذكي (safe)
+    try {
+      if(state.settings && state.settings.smartReminder) scheduleSmartReminder();
+    } catch(e){console.warn("reminder error",e);}
+  } catch(e){
+    console.error("handleDailyVisit error",e);
+  }
+}
+
+/* ---------- 10b) توليد التحدي اليومي ---------- */
+function generateDailyChallenge(date){
+  const seed = date.getFullYear()*10000 + (date.getMonth()+1)*100 + date.getDate();
+  const types = [
+    {type:"correct_streak", target:10, label:"أجب على 10 إجابات صحيحة", reward:50, ic:"🎯"},
+    {type:"learn_words", target:5, label:"تعلم 5 كلمات جديدة", reward:40, ic:"📚"},
+    {type:"review_words", target:3, label:"راجع 3 كلمات", reward:30, ic:"🧠"},
+    {type:"pass_lessons", target:1, label:"أكمل درساً واحداً", reward:35, ic:"✅"},
+    {type:"correct_total", target:15, label:"15 إجابة صحيحة إجمالية", reward:45, ic:"⭐"},
+  ];
+  const chosen = types[seed % types.length];
+  return {
+    date: date.getTime(),
+    type: chosen.type,
+    target: chosen.target,
+    label: chosen.label,
+    ic: chosen.ic,
+    reward: chosen.reward,
+    progress: 0,
+    completed: false,
+  };
+}
+
+/* ---------- 10c) اختيار كلمة اليوم ---------- */
+function pickWordOfDay(date){
+  const seed = date.getFullYear()*10000 + (date.getMonth()+1)*100 + date.getDate();
+  const allWords = [];
+  state.levels.forEach(lv=>{
+    lv.words.forEach(w=>{
+      allWords.push({levelId: lv.id, wordId: w.id});
+    });
+  });
+  if(allWords.length === 0) return null;
+  return {date: date.getTime(), ...allWords[seed % allWords.length]};
+}
+
+function getWordOfDayWord(){
+  if(!state.wordOfDay) return null;
+  const lv = state.levels.find(l=>l.id === state.wordOfDay.levelId);
+  if(!lv) return null;
+  const w = lv.words.find(x=>x.id === state.wordOfDay.wordId);
+  return w;
+}
+
+/* ---------- 10d) تحديث التحدي اليومي ---------- */
+function updateDailyChallenge(type, increment=1){
+  if(!state.dailyChallenge || state.dailyChallenge.completed) return;
+  if(state.dailyChallenge.type !== type) return;
+  state.dailyChallenge.progress = Math.min(state.dailyChallenge.target, state.dailyChallenge.progress + increment);
+  if(state.dailyChallenge.progress >= state.dailyChallenge.target){
+    state.dailyChallenge.completed = true;
+    state.xp += state.dailyChallenge.reward;
+    toast(`🎉 أكملت التحدي اليومي! +${state.dailyChallenge.reward} XP`,"success");
+    sfx("complete");
+    fireConfetti(false);
+    checkAchievements();
+  }
+  saveState();
+}
+
+/* ---------- 10e) تحديث الهدف اليومي ---------- */
+function updateDailyProgress(increment=1){
+  const todayStr = new Date().toDateString();
+  if(!state.dailyProgress.date || new Date(state.dailyProgress.date).toDateString() !== todayStr){
+    state.dailyProgress = {date: Date.now(), count: 0};
+  }
+  state.dailyProgress.count += increment;
+  // إضافة لخريطة النشاط
+  const todayKey = new Date().toISOString().slice(0,10);
+  state.activityLog[todayKey] = (state.activityLog[todayKey]||0) + increment;
+  saveState();
+}
+
+/* ---------- 10f) التذكير الذكي ---------- */
+function getOptimalReminderTime(){
+  // احسب أفضل وقت للتذكير بناءً على نشاط المستخدم السابق
+  if(state.weekActivity.every(v=>v===0)){
+    // مستخدم جديد - استخدم 7 مساءً
+    return 19;
+  }
+  // أوجد اليوم الأكثر نشاطاً والساعة المثلى
+  const maxDay = state.weekActivity.indexOf(Math.max(...state.weekActivity));
+  const now = new Date();
+  const dayIdx = (now.getDay()+6)%7;
+  // إذا لم يتعلم اليوم بعد، ذكّره في المساء
+  const todayKey = now.toISOString().slice(0,10);
+  const todayActivity = state.activityLog[todayKey] || 0;
+  if(todayActivity === 0){
+    // ذكّره في الساعة 7 أو 8 مساءً
+    return now.getHours() < 19 ? 19 : (now.getHours() < 21 ? 20 : 21);
+  }
+  return 19;
+}
+
+function scheduleSmartReminder(){
+  // التذكير يعمل الآن عبر remindersTick الدوري — لا حاجة لجدولة setTimeout (كانت تفقد جدولتها عند إغلاق التبويب)
+}
+
+function getSuggestionText(){
+  // اقتراح ذكي بناءً على حالة المستخدم
+  const due = getDueReviewWords();
+  const todayKey = new Date().toISOString().slice(0,10);
+  const todayActivity = state.activityLog[todayKey] || 0;
+  const goal = state.settings.dailyGoal || 10;
+  
+  if(todayActivity < goal){
+    const remaining = goal - todayActivity;
+    return {
+      ic:"🎯",
+      text:`بقي ${remaining} كلمة لإكمال هدف اليوم`,
+      action:"ابدأ التعلم",
+      onClick:()=>continueLearning()
+    };
+  }
+  if(due.length > 0){
+    return {
+      ic:"🧠",
+      text:`لديك ${due.length} كلمة بانتظار المراجعة`,
+      action:"راجع الآن",
+      onClick:()=>go("review")
+    };
+  }
+  return {
+    ic:"🎉",
+    text:"أحسنت! أكملت أهداف اليوم",
+    action:"خذ اختباراً",
+    onClick:()=>go("tests")
+  };
+}
+
+/* ---------- 11) عرض الشاشة الرئيسية ---------- */
+function renderHome(){
+  try { renderHomeInner(); } catch(e){
+    console.error("renderHome error",e);
+  }
+}
+function renderHomeInner(){
+  const lvl = getUserLevel();
+  const xpInLvl = state.xp % 100;
+  $("uc-circle").textContent = lvl;
+  $("uc-level").textContent = getLevelTitle(lvl);
+  $("uc-fill").style.width = xpInLvl+"%";
+  $("uc-xp").textContent = state.xp;
+  $("uc-need").textContent = 100 - xpInLvl;
+
+  // === الهدف اليومي ===
+  const goal = state.settings.dailyGoal || 10;
+  const todayCount = state.dailyProgress.count || 0;
+  const goalPct = Math.min(100, Math.round(todayCount/goal*100));
+  const goalBox = $("daily-goal-widget");
+  if(goalBox){
+    const isDone = todayCount >= goal;
+    goalBox.className = "smart-widget" + (isDone?" done":"");
+    goalBox.innerHTML = `
+      <div class="sw-ic" style="background:${isDone?'var(--green-grad)':'var(--orange-grad)'}">${isDone?'✅':'🎯'}</div>
+      <div class="sw-body">
+        <div class="sw-title">الهدف اليومي</div>
+        <div class="sw-desc">${todayCount} / ${goal} كلمة ${isDone?'- أحسنت! ✨':''}</div>
+        <div class="sw-progress"><div class="sw-fill" style="width:${goalPct}%;background:${isDone?'var(--green-grad)':'var(--orange-grad)'}"></div></div>
+      </div>
+    `;
+  }
+  
+  // === التذكير الذكي (اقتراح) ===
+  const sugBox = $("smart-reminder-widget");
+  if(sugBox){
+    const sug = getSuggestionText();
+    sugBox.className = "smart-widget suggest";
+    sugBox.innerHTML = `
+      <div class="sw-ic" style="background:var(--purple-grad)">${sug.ic}</div>
+      <div class="sw-body">
+        <div class="sw-title">تذكير ذكي</div>
+        <div class="sw-desc">${sug.text}</div>
+      </div>
+      <button class="sw-btn">${sug.action}</button>
+    `;
+    sugBox.querySelector(".sw-btn").onclick = sug.onClick;
+  }
+  
+  // === التحدي اليومي ===
+  const chBox = $("daily-challenge-widget");
+  if(chBox && state.dailyChallenge){
+    const ch = state.dailyChallenge;
+    const chPct = Math.min(100, Math.round(ch.progress/ch.target*100));
+    chBox.className = "smart-widget challenge" + (ch.completed?" done":"");
+    chBox.innerHTML = `
+      <div class="sw-ic" style="background:${ch.completed?'var(--green-grad)':'var(--gold-grad)'}">${ch.ic}</div>
+      <div class="sw-body">
+        <div class="sw-title">التحدي اليومي ${ch.completed?'✓':''}</div>
+        <div class="sw-desc">${ch.label}</div>
+        <div class="sw-progress"><div class="sw-fill" style="width:${chPct}%;background:${ch.completed?'var(--green-grad)':'var(--gold-grad)'}"></div></div>
+        <div class="sw-meta">${ch.progress}/${ch.target} • مكافأة: +${ch.reward} XP</div>
+      </div>
+    `;
+  }
+  
+  // === كلمة اليوم ===
+  const wodBox = $("word-of-day-widget");
+  if(wodBox){
+    const w = getWordOfDayWord();
+    if(w){
+      wodBox.className = "smart-widget wod";
+      wodBox.innerHTML = `
+        <div class="sw-ic" style="background:var(--blue-grad)">📖</div>
+        <div class="sw-body">
+          <div class="sw-title">كلمة اليوم</div>
+          <div class="sw-desc"><b style="font-family:'Poppins'">${w.en}</b> - ${w.ar}</div>
+          <div class="sw-meta" style="font-size:11px;color:var(--txt-3)">${w.exEn}</div>
+        </div>
+        <button class="sw-btn speak">🔊</button>
+      `;
+      wodBox.querySelector(".speak").onclick = ()=>speak(w.en);
+    } else {
+      wodBox.innerHTML = "";
+    }
+  }
+
+  // CTA
+  const nextLevel = findNextLevel();
+  if(nextLevel){
+    $("cta-title").textContent = "واصل التعلم";
+    $("cta-sub").textContent = nextLevel.title + " • " + nextLevel.words.length + " كلمات";
+  } else {
+    $("cta-title").textContent = "أحسنت! أنهيت كل المستويات";
+    $("cta-sub").textContent = "راجع الكلمات من قسم المراجعة";
+  }
+
+  // Levels list
+  const list = $("levels-list");
+  list.innerHTML = "";
+  // logic: a level is unlocked if it's the first one OR the previous is completed
+  let prevDone = true;
+  state.levels.forEach((lv, idx)=>{
+    const completed = state.completedLevels.includes(lv.id);
+    const unlocked = idx===0 || prevDone;
+    const card = document.createElement("div");
+    card.className = "level-card";
+    if(!unlocked) card.classList.add("locked");
+    if(completed) card.classList.add("completed");
+    if(lv.id === (nextLevel&&nextLevel.id)) card.classList.add("current");
+    // progress
+    let learned = 0;
+    lv.words.forEach(w=>{
+      if(getWordStage(lv.id+"_"+w.id) >= 3) learned++;
+    });
+    const pct = lv.words.length ? Math.round(learned/lv.words.length*100) : 0;
+    const grad = COLOR_GRADS[lv.color] || COLOR_GRADS.purple;
+    card.innerHTML = `
+      <div class="level-emoji" style="background:${grad}">${lv.emoji}</div>
+      <div class="level-info">
+        <div class="t">${lv.title}</div>
+        <div class="d">${lv.desc||lv.words.length+" كلمات"}</div>
+        <div class="level-progress"><div class="fill" style="width:${pct}%;background:${grad}"></div></div>
+      </div>
+      <div class="level-meta">
+        <div class="pct">${pct}%</div>
+        <div>${learned}/${lv.words.length}</div>
+      </div>
+    `;
+    if(unlocked){
+      card.onclick = ()=>startLesson(lv.id);
+    } else {
+      card.onclick = ()=>toast("🔒 أكمل المستوى السابق أولاً","error");
+    }
+    list.appendChild(card);
+    prevDone = completed;
+  });
+}
+
+function findNextLevel(){
+  for(const lv of state.levels){
+    if(!state.completedLevels.includes(lv.id)){
+      // تحقق من الشرط: المستوى السابق مكتمل
+      const idx = state.levels.indexOf(lv);
+      if(idx===0) return lv;
+      if(state.completedLevels.includes(state.levels[idx-1].id)) return lv;
+    }
+  }
+  return null;
+}
+
+function continueLearning(){
+  const next = findNextLevel();
+  if(next) startLesson(next.id);
+  else toast("🎉 أنهيت كل المستويات! راجع الكلمات من قسم المراجعة");
+}
+
+/* ---------- 12) بدء درس ---------- */
+function startLesson(levelId, isRetry=false){
+  if(state.energy <= 0){
+    toast("⚠️ نفدت طاقتك! أعد فتح التطبيق لتعبئتها","error");
+    return;
+  }
+  // لا تستهلك طاقة عند الإعادة (لتجنب نفادها بسرعة)
+  if(!isRetry) state.energy--;
+  const level = state.levels.find(l=>l.id===levelId);
+  if(!level) return;
+  // بناء سلسلة أنشطة لكل كلمة: 1) بطاقة تعريف 2) اختيار 3) كتابة/تركيب حروف + نشاط نطق
+  const activities = [];
+  const canSpeak = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+  level.words.forEach((w, i)=>{
+    activities.push({type:"intro", word:w, idx:i});
+    activities.push({type:"choice", word:w, idx:i});
+    // نشاط كتابة إضافي لكل ثالث كلمة (تركيب حروف أو سماع وكتابة)
+    if(level.words.length >= 3 && i % 3 === 1){
+      activities.push({type: canScrambleWord(w) ? "scramble" : "listen", word:w, idx:i});
+    }
+  });
+  // نشاط نطق عشوائي داخل الدرس إذا كان المتصفح يدعم التعرف على الكلام
+  if(canSpeak && level.words.length >= 2){
+    const w = level.words[Math.floor(Math.random()*level.words.length)];
+    const pos = 1 + Math.floor(Math.random()*Math.max(1, activities.length-1));
+    activities.splice(pos, 0, {type:"speak", word:w, idx:-1});
+  }
+  state.lesson = {
+    levelId, level,
+    activities,
+    pos:0,
+    hearts:3,
+    correct:0,
+    wrong:0,
+    xpEarned:0,
+  };
+  go("lesson");
+  $("lesson-hearts").textContent = state.lesson.hearts;
+  $("lesson-fill").style.width = "0%";
+  renderActivity();
+}
+
+function exitLesson(){
+  if(confirm("هل تريد إنهاء الدرس؟ ستفقد تقدمك.")){
+    state.lesson = null;
+    stopSpeak();
+    hideFeedback();
+    go("home");
+  }
+}
+
+function renderActivity(){
+  const L = state.lesson;
+  if(!L) return;
+  const act = L.activities[L.pos];
+  if(!act) return finishLesson();
+  try {
+    $("lesson-fill").style.width = Math.round((L.pos/L.activities.length)*100)+"%";
+  } catch(e){}
+  const box = $("lesson-content");
+  box.innerHTML = "";
+  // بدء مؤقت السؤال للاختبار المحدود الوقت (safe)
+  try {
+    if(L.testMode === "timed" && act.type !== "intro"){
+      startQuestionTimer(10);
+    } else {
+      stopQuestionTimer();
+    }
+  } catch(e){console.warn("timer error",e);}
+  if(act.type === "intro") renderIntro(box, act.word);
+  else if(act.type === "choice") renderChoice(box, act.word);
+  else if(act.type === "listen") renderListen(box, act.word);
+  else if(act.type === "speak") renderSpeak(box, act.word);
+  else if(act.type === "scramble") renderScramble(box, act.word);
+}
+
+/* ---------- مساعد: هل يمكن تركيب الكلمة من حروف؟ ---------- */
+function canScrambleWord(w){
+  const en = (w && w.en) ? w.en : "";
+  const letters = en.replace(/[^a-zA-Z]/g,"");
+  return letters.length >= 3 && letters.length <= 12 && en.indexOf(" ") === -1;
+}
+
+/* ---------- نشاط تركيب الحروف (كتابة تفاعلية) ---------- */
+let scrState = null;
+function renderScramble(box, word){
+  const letters = word.en.toUpperCase().replace(/[^A-Z]/g,"").split("");
+  const target = letters.join("");
+  scrState = {
+    word,
+    target,
+    built:[],
+    pool: shuffle(letters.map((ch,i)=>({ch, id:i, used:false}))),
+  };
+  const card = document.createElement("div");
+  card.className = "quiz-q";
+  card.innerHTML = `
+    <div class="label">🧩 رتّب الحروف لتكوين الكلمة</div>
+    <div class="prompt-ar" style="margin-bottom:6px">${word.emoji} ${word.ar}</div>
+    <div style="font-size:13px;color:var(--txt-3);font-weight:700;margin-bottom:12px">${"-".repeat(target.length)}</div>
+    <div class="scramble-slots" id="scr-slots"></div>
+    <div class="scramble-pool" id="scr-pool"></div>
+    <div style="display:flex;gap:8px">
+      <button class="btn ghost" style="flex:1" onclick="scrambleClear()">🧹 مسح</button>
+      <button class="btn green" style="flex:2" onclick="checkScramble()">✅ تحقق</button>
+    </div>
+    <button class="speak-btn" style="width:46px;height:46px;font-size:20px;margin:14px auto 0" title="تلميح صوتي" onclick="speak(scrState.word.en)">🔊</button>
+  `;
+  box.appendChild(card);
+  renderScrambleTiles();
+}
+
+function renderScrambleTiles(){
+  const slots = $("scr-slots"), pool = $("scr-pool");
+  const S = scrState;
+  if(!slots || !pool || !S) return;
+  slots.innerHTML = ""; pool.innerHTML = "";
+  for(let i=0;i<S.target.length;i++){
+    const b = document.createElement("button");
+    b.className = "tile-slot";
+    const item = S.built[i];
+    if(item){
+      b.textContent = item.ch;
+      b.onclick = ()=>{
+        const idx = S.built.indexOf(item);
+        if(idx > -1) S.built.splice(idx,1);
+        item.used = false;
+        renderScrambleTiles();
+      };
+    }
+    slots.appendChild(b);
+  }
+  S.pool.forEach(item=>{
+    const b = document.createElement("button");
+    b.className = "tile" + (item.used ? " used" : "");
+    b.textContent = item.ch;
+    if(!item.used){
+      b.onclick = ()=>{
+        if(S.built.length >= S.target.length) return;
+        item.used = true;
+        S.built.push(item);
+        renderScrambleTiles();
+      };
+    }
+    pool.appendChild(b);
+  });
+}
+
+function scrambleClear(){
+  const S = scrState;
+  if(!S) return;
+  S.built = [];
+  S.pool.forEach(x=>x.used = false);
+  renderScrambleTiles();
+}
+
+function checkScramble(){
+  const L = state.lesson;
+  const S = scrState;
+  if(!L || !S) return;
+  try { stopQuestionTimer(); } catch(e){}
+  if(S.built.length < S.target.length){
+    toast("⚠️ أكمل تركيب الكلمة أولاً","error");
+    return;
+  }
+  const val = S.built.map(x=>x.ch).join("").toLowerCase();
+  const correct = val === S.target.toLowerCase();
+  const word = S.word;
+  sfx(correct ? "correct" : "wrong");
+  setTimeout(()=>onAnswerResult(correct, word, "scramble"), 500);
+}
+
+/* ---------- مؤقت السؤال (للاختبار المحدود الوقت) ---------- */
+let qTimer = null;
+let qTimerStart = 0;
+function startQuestionTimer(seconds){
+  stopQuestionTimer();
+  qTimerStart = Date.now();
+  let timerEl = $("q-timer");
+  if(!timerEl){
+    timerEl = document.createElement("div");
+    timerEl.id = "q-timer";
+    timerEl.className = "q-timer";
+    document.querySelector(".lesson-top").appendChild(timerEl);
+  }
+  timerEl.style.display = "flex";
+  timerEl.classList.remove("danger");
+  let remaining = seconds;
+  timerEl.innerHTML = `<span>⏱</span><span>${remaining}</span>`;
+  qTimer = setInterval(()=>{
+    remaining--;
+    timerEl.innerHTML = `<span>⏱</span><span>${remaining}</span>`;
+    if(remaining <= 3) timerEl.classList.add("danger");
+    if(remaining <= 0){
+      stopQuestionTimer();
+      handleQuestionTimeout();
+    }
+  }, 1000);
+}
+function stopQuestionTimer(){
+  if(qTimer){clearInterval(qTimer); qTimer=null;}
+  const timerEl = $("q-timer");
+  if(timerEl) timerEl.style.display = "none";
+}
+function getAnswerSpeed(){
+  if(!qTimerStart) return 0;
+  return Math.floor((Date.now() - qTimerStart) / 1000);
+}
+function handleQuestionTimeout(){
+  const L = state.lesson;
+  if(!L) return;
+  // تعطيل الأزرار
+  document.querySelectorAll(".quiz-opt, .type-input").forEach(el=>{
+    el.classList.add("disabled");
+    el.disabled = true;
+  });
+  // إظهار الإجابة الصحيحة
+  document.querySelectorAll(".quiz-opt").forEach(b=>{
+    if(b.querySelector("div:last-child") && L.activities[L.pos]){
+      const correctAr = L.activities[L.pos].word.ar;
+      if(b.querySelector("div:last-child").textContent === correctAr) b.classList.add("correct");
+    }
+  });
+  sfx("wrong");
+  L.wrong++;
+  L.hearts--;
+  $("lesson-hearts").textContent = L.hearts;
+  if(L.hearts <= 0){
+    setTimeout(()=>failLesson(), 800);
+    return;
+  }
+  showFeedback(false, L.activities[L.pos].word);
+}
+
+function renderIntro(box, word){
+  const card = document.createElement("div");
+  card.className = "word-card";
+  card.style.cursor = "pointer";
+  card.innerHTML = `
+    <div class="word-emoji">${word.emoji}</div>
+    <div class="word-en">${word.en}</div>
+    <div class="word-type">${typeLabel(word.type)}</div>
+    <div class="word-ar">${word.ar}</div>
+    ${word.exEn ? `<div class="word-ex">
+      <div class="en">${word.exEn}</div>
+      <div>${word.exAr}</div>
+    </div>` : ""}
+    <div class="word-actions">
+      <button class="word-btn speak" title="استمع">🔊</button>
+      <button class="word-btn speak slow" title="استمع ببطء">🐢</button>
+    </div>
+  `;
+  // النطق التلقائي عند النقر على البطاقة
+  card.onclick = (e)=>{
+    // تجنب تشغيل الصوت مرتين إذا نقر المستخدم على زر الصوت
+    if(e.target.closest('.word-btn')) return;
+    speak(word.en);
+  };
+  card.querySelector(".speak").onclick = (e)=>{e.stopPropagation(); speak(word.en);};
+  card.querySelector(".speak.slow").onclick = (e)=>{e.stopPropagation(); speak(word.en, true);};
+  box.appendChild(card);
+  // نطق تلقائي عند الظهور (حسب الإعدادات)
+  setTimeout(()=>{ if(state.settings.autoSpeak !== false) speak(word.en); }, 400);
+  const next = document.createElement("div");
+  next.style.cssText = "padding:0 16px";
+  next.innerHTML = `<button class="btn green block" onclick="nextActivity()">فهمت، تابع ▸</button>`;
+  box.appendChild(next);
+}
+
+function typeLabel(t){
+  return {noun:"اسم",verb:"فعل",adjective:"صفة",adverb:"ظرف",phrase:"عبارة",number:"رقم"}[t]||t;
+}
+
+function renderChoice(box, word){
+  const level = state.lesson.level;
+  // اختر 3 إجابات خاطئة عشوائية من نفس المستوى
+  const others = shuffle(level.words.filter(w=>w.id!==word.id)).slice(0,3);
+  if(others.length<3){
+    // اكمل من مستويات أخرى
+    const all = state.levels.flatMap(l=>l.words).filter(w=>w.id!==word.id);
+    while(others.length<3){
+      const extra = shuffle(all).find(w=>!others.includes(w));
+      if(extra) others.push(extra); else break;
+    }
+  }
+  const options = shuffle([word, ...others]);
+  const card = document.createElement("div");
+  card.className = "quiz-q";
+  card.innerHTML = `
+    <div class="label">🎯 اختر الترجمة الصحيحة</div>
+    <div class="prompt-en">${word.en}</div>
+    <div class="prompt-ar">${word.emoji}</div>
+    <button class="speak-btn" title="استمع">🔊</button>
+    <div class="quiz-options" id="opts"></div>
+  `;
+  card.querySelector(".speak-btn").onclick = ()=>speak(word.en);
+  const optsEl = card.querySelector("#opts");
+  const letters = ["A","B","C","D"];
+  options.forEach((o,i)=>{
+    const b = document.createElement("button");
+    b.className = "quiz-opt";
+    b.innerHTML = `<div class="ic">${letters[i]}</div><div>${o.ar}</div>`;
+    b.onclick = ()=>handleChoice(b, o, word);
+    optsEl.appendChild(b);
+  });
+  box.appendChild(card);
+  setTimeout(()=>speak(word.en), 300);
+}
+
+function handleChoice(btn, selected, word){
+  try { stopQuestionTimer(); } catch(e){}
+  const correct = selected.id === word.id;
+  document.querySelectorAll(".quiz-opt").forEach(b=>b.classList.add("disabled"));
+  if(correct){
+    btn.classList.add("correct");
+    sfx("correct");
+    // بونص السرعة للاختبار المحدود الوقت (safe)
+    try {
+      const L = state.lesson;
+      if(L && L.testMode === "timed"){
+        const speed = getAnswerSpeed();
+        if(speed <= 5){
+          state.xp += 5;
+          L.xpEarned += 5;
+          toast("⚡ إجابة سريعة! +5 XP","success");
+        }
+      }
+    } catch(e){}
+  } else {
+    btn.classList.add("wrong");
+    document.querySelectorAll(".quiz-opt").forEach(b=>{
+      if(b.querySelector("div:last-child").textContent === word.ar) b.classList.add("correct");
+    });
+    sfx("wrong");
+  }
+  setTimeout(()=>onAnswerResult(correct, word, "choice"), 600);
+}
+
+function renderListen(box, word){
+  const card = document.createElement("div");
+  card.className = "quiz-q";
+  card.innerHTML = `
+    <div class="label">✍️ استمع واكتب الكلمة</div>
+    <button class="speak-btn" title="استمع">🔊</button>
+    <button class="speak-btn" style="background:#74b9ff;margin-top:8px" title="بطيء">🐢</button>
+    <div class="prompt-ar" style="margin-top:14px">${word.emoji} ${word.ar}</div>
+    <input type="text" class="type-input" id="ti" placeholder="اكتب الكلمة هنا..." autocomplete="off" />
+    <button class="btn green block" onclick="checkTyping()">تحقق</button>
+  `;
+  card.querySelector(".speak-btn").onclick = ()=>speak(word.en);
+  card.querySelectorAll(".speak-btn")[1].onclick = ()=>speak(word.en, true);
+  box.appendChild(card);
+  setTimeout(()=>{ speak(word.en); $("ti").focus(); }, 400);
+  $("ti").addEventListener("keypress", e=>{
+    if(e.key==="Enter") checkTyping();
+  });
+}
+
+function checkTyping(){
+  const L = state.lesson;
+  if(!L) return;
+  try { stopQuestionTimer(); } catch(e){}
+  const act = L.activities[L.pos];
+  const word = act.word;
+  const input = $("ti");
+  const val = input.value.trim().toLowerCase();
+  const correct = val === word.en.toLowerCase();
+  input.classList.remove("correct","wrong");
+  if(correct){
+    input.classList.add("correct");
+    sfx("correct");
+    // بونص السرعة للاختبار المحدود الوقت (safe)
+    try {
+      if(L.testMode === "timed"){
+        const speed = getAnswerSpeed();
+        if(speed <= 5){
+          state.xp += 5;
+          L.xpEarned += 5;
+          toast("⚡ إجابة سريعة! +5 XP","success");
+        }
+      }
+    } catch(e){}
+  } else {
+    input.classList.add("wrong");
+    sfx("wrong");
+  }
+  setTimeout(()=>onAnswerResult(correct, word, "listen"), 800);
+}
+
+function onAnswerResult(correct, word, type){
+  const L = state.lesson;
+  if(!L) return;
+  setWordResult(L.levelId+"_"+word.id, correct);
+  if(correct){
+    L.correct++;
+    L.xpEarned += 10;
+    state.xp += 10;
+    showFeedback(true, word);
+  } else {
+    L.wrong++;
+    L.hearts--;
+    $("lesson-hearts").textContent = L.hearts;
+    if(L.hearts <= 0){
+      // انتهت القلوب
+      hideFeedback();
+      setTimeout(()=>failLesson(), 600);
+      return;
+    }
+    showFeedback(false, word);
+  }
+}
+
+function showFeedback(correct, word){
+  const fb = $("feedback");
+  fb.className = "feedback active " + (correct?"correct":"wrong");
+  $("fb-ic").textContent = correct?"✓":"✗";
+  $("fb-t").textContent = correct?"إجابة صحيحة!":"إجابة خاطئة";
+  $("fb-d").innerHTML = `<b style="font-family:'Poppins'">${word.en}</b> = <b>${word.ar}</b>`;
+  $("fb-btn").textContent = "متابعة";
+  $("fb-btn").onclick = ()=>{
+    hideFeedback();
+    nextActivity();
+  };
+}
+function hideFeedback(){
+  $("feedback").classList.remove("active");
+}
+
+function nextActivity(){
+  const L = state.lesson;
+  if(!L) return;
+  hideFeedback();
+  L.pos++;
+  if(L.pos >= L.activities.length){
+    finishLesson();
+  } else {
+    renderActivity();
+  }
+}
+
+function failLesson(){
+  const L = state.lesson;
+  if(!L) return;
+  const modal = $("modal");
+  $("modal-ic").textContent = "💔";
+  $("modal-title").textContent = "نفدت قلوبك!";
+  $("modal-msg").innerHTML = `حظ أوفر! حاول مرة أخرى<br><small>أجبت بشكل صحيح عن ${L.correct} من ${L.activities.length}</small>`;
+  $("modal-extra").innerHTML = "";
+  const actions = $("modal-actions");
+  actions.innerHTML = "";
+  const b1 = document.createElement("button");
+  b1.className="btn orange"; b1.textContent="🔄 إعادة";
+  b1.onclick=()=>{
+    closeModal();
+    // أعد نفس النوع من الاختبار/الدرس
+    if(L.testMode === "completion") startCompletionTest(L.levelId);
+    else if(L.testMode === "timed") startTimedTest();
+    else if(L.testMode === "typing") startTypingTest();
+    else if(L.testMode === "speaking") startSpeakingTest();
+    else if(L.testMode === "mixed") startMixedTest();
+    else if(L.reviewMode) {/* لا تعيد المراجعة تلقائياً */}
+    else startLesson(L.levelId, true);
+  };
+  actions.appendChild(b1);
+  const b2 = document.createElement("button");
+  b2.className="btn ghost"; b2.textContent="🏠 الرئيسية";
+  b2.onclick=()=>{closeModal(); state.lesson=null; go("home");};
+  actions.appendChild(b2);
+  modal.classList.add("active");
+}
+
+function finishLesson(){
+  const L = state.lesson;
+  if(!L) return;
+  const total = L.activities.length;
+  const correct = L.correct;
+  const pct = Math.round(correct/total*100);
+  const passed = pct >= 60;
+
+  // === إذا كان هذا اختبار إكمال مستوى ===
+  if(L.testMode === "completion"){
+    return finishCompletionTest();
+  }
+
+  // === درس عادي (ليس اختبار، وليس مراجعة) ===
+  // إذا اجتاز الدرس ولم يكمل المستوى من قبل → ابدأ اختبار الإكمال
+  if(!L.testMode && !L.reviewMode && passed && !state.completedLevels.includes(L.levelId)){
+    // حفظ XP المكتسبة من أنشطة الدرس (تمت إضافتها أثناء الأنشطة)
+    saveState();
+    updateTopStats();
+    // ابدأ اختبار الإكمال تلقائياً بعد رسالة قصيرة
+    toast("✅ أكملت الدرس! جاري بدء اختبار الإكمال...","success");
+    setTimeout(()=>startCompletionTest(L.levelId), 1200);
+    return;
+  }
+
+  // === الحالات الأخرى: اختبارات (كتابة/كلام/شامل)، مراجعة، أو درس مستوى مكتمل سابقاً ===
+  let bonusXP = 0;
+  if(passed){
+    bonusXP = 50 + (L.hearts*10);
+    state.xp += bonusXP;
+    if(!L.testMode && !state.completedLevels.includes(L.levelId)){
+      state.completedLevels.push(L.levelId);
+    }
+    sfx("complete");
+    fireConfetti(true);
+    checkAchievements();
+    const now = new Date();
+    const dayIdx = (now.getDay()+6)%7;
+    state.weekActivity[dayIdx]++;
+  } else {
+    sfx("wrong");
+  }
+  saveState();
+  updateTopStats();
+  const modal = $("modal");
+  $("modal-ic").textContent = passed?"🏆":"😔";
+  $("modal-title").textContent = passed?(L.testMode?"أحسنت! النتائج":"أحسنت!"):"حاول مجدداً";
+  let msg = `أنهيت <b>${L.level.title}</b><br>النتيجة: ${correct}/${total} (${pct}%)`;
+  if(L.reviewMode) msg = `مراجعة <b>${L.level.title}</b><br>النتيجة: ${correct}/${total} (${pct}%)`;
+  $("modal-msg").innerHTML = msg;
+  $("modal-extra").innerHTML = passed
+    ? `<div style="background:#eef9f4;border-radius:10px;padding:10px;margin-top:8px;color:var(--green);font-weight:800">
+         +${10*correct+bonusXP} XP (${10*correct} للإجابات + ${bonusXP} بونص)
+       </div>`
+    : `<div style="color:var(--txt-2);font-size:13px;margin-top:8px">تحتاج 60% على الأقل للإجتياز</div>`;
+  const actions = $("modal-actions");
+  actions.innerHTML = "";
+  const b1 = document.createElement("button");
+  b1.className="btn green"; b1.textContent="🔄 إعادة";
+  b1.onclick=()=>{closeModal(); 
+    if(L.reviewMode) {/* review doesn't restart */}
+    else if(L.testMode) {
+      if(L.testMode==="typing") startTypingTest();
+      else if(L.testMode==="speaking") startSpeakingTest();
+      else if(L.testMode==="mixed") startMixedTest();
+    } else startLesson(L.levelId, true);
+  };
+  actions.appendChild(b1);
+  if(passed && !L.testMode && !L.reviewMode){
+    const next = findNextLevel();
+    if(next && next.id !== L.levelId){
+      const b2 = document.createElement("button");
+      b2.className="btn orange"; b2.textContent="▸ المستوى التالي";
+      b2.onclick=()=>{closeModal(); startLesson(next.id);};
+      actions.appendChild(b2);
+    }
+  }
+  const b3 = document.createElement("button");
+  b3.className="btn ghost"; b3.textContent="🏠 الرئيسية";
+  b3.onclick=()=>{closeModal(); state.lesson=null; go("home");};
+  actions.appendChild(b3);
+  modal.classList.add("active");
+  state.lesson = null;
+}
+
+/* ---------- نافذة قبل اختبار الإكمال ---------- */
+function showPreTestModal(levelId, correct, total, pct){
+  const level = state.levels.find(l=>l.id===levelId);
+  const modal = $("modal");
+  $("modal-ic").textContent = "🎓";
+  $("modal-title").textContent = "أكملت الدرس بنجاح!";
+  $("modal-msg").innerHTML = `أنهيت أنشطة درس <b>${level.title}</b><br>
+    النتيجة: ${correct}/${total} (${pct}%)<br><br>
+    <div style="background:#fff4e6;border-radius:10px;padding:10px;color:var(--orange-dark);font-size:13px">
+      🎯 <b>اختبار الإكمال</b> عشوائي (5 أسئلة: كتابة + استماع)<br>
+      يجب اجتيازه بنسبة 60% لفتح <b>${(findNextLevelAfter(levelId)||{}).title || 'المستوى التالي'}</b>
+    </div>`;
+  $("modal-extra").innerHTML = "";
+  const actions = $("modal-actions");
+  actions.innerHTML = "";
+  const b1 = document.createElement("button");
+  b1.className="btn green"; b1.textContent="🎯 ابدأ اختبار الإكمال";
+  b1.onclick=()=>{closeModal(); startCompletionTest(levelId);};
+  actions.appendChild(b1);
+  const b2 = document.createElement("button");
+  b2.className="btn ghost"; b2.textContent="🏠 الرئيسية";
+  b2.onclick=()=>{closeModal(); state.lesson=null; go("home");};
+  actions.appendChild(b2);
+  modal.classList.add("active");
+  state.lesson = null;
+}
+
+/* ---------- البحث عن المستوى الذي يلي مستوى معين ---------- */
+function findNextLevelAfter(levelId){
+  const idx = state.levels.findIndex(l=>l.id===levelId);
+  if(idx === -1 || idx >= state.levels.length-1) return null;
+  return state.levels[idx+1];
+}
+
+/* ---------- بدء اختبار الإكمال ---------- */
+function startCompletionTest(levelId){
+  const level = state.levels.find(l=>l.id===levelId);
+  if(!level) return;
+  // اختر 5 كلمات عشوائياً من المستوى
+  const testWords = shuffle(level.words).slice(0, Math.min(5, level.words.length));
+  // اختيار من متعدد فقط (أسهل - لا كتابة)
+  const activities = testWords.map((w, i)=>({type:"choice", word:w, idx:i}));
+  state.lesson = {
+    testMode:"completion",
+    levelId,
+    level:{title:`اختبار إكمال: ${level.title}`, words:testWords},
+    activities: shuffle(activities),
+    pos:0, hearts:3, correct:0, wrong:0, xpEarned:0,
+  };
+  go("lesson");
+  $("lesson-hearts").textContent = state.lesson.hearts;
+  $("lesson-fill").style.width = "0%";
+  renderActivity();
+}
+
+/* ---------- إنهاء اختبار الإكمال ---------- */
+function finishCompletionTest(){
+  const L = state.lesson;
+  if(!L) return;
+  const total = L.activities.length;
+  const correct = L.correct;
+  const pct = Math.round(correct/total*100);
+  const passed = pct >= 60;
+  let bonusXP = 0;
+  if(passed){
+    bonusXP = 50 + (L.hearts*10);
+    state.xp += bonusXP;
+    if(!state.completedLevels.includes(L.levelId)){
+      state.completedLevels.push(L.levelId);
+      // تحديث التحدي اليومي: إكمال درس (safe - لا يكسر الحفظ)
+      try { updateDailyChallenge("pass_lessons", 1); } catch(e){console.warn("challenge update error",e);}
+    }
+    try { sfx("complete"); } catch(e){}
+    try { fireConfetti(true); } catch(e){}
+    try { checkAchievements(); } catch(e){}
+    const now = new Date();
+    const dayIdx = (now.getDay()+6)%7;
+    state.weekActivity[dayIdx]++;
+  } else {
+    try { sfx("wrong"); } catch(e){}
+  }
+  // حفظ الحالة فوراً (مهم جداً - يجب أن يتم قبل أي إشعار)
+  try { saveState(); } catch(e){console.error("save error",e);}
+  try { updateTopStats(); } catch(e){}
+  const modal = $("modal");
+  const level = state.levels.find(l=>l.id===L.levelId);
+  const nextLevel = findNextLevelAfter(L.levelId);
+  if(passed){
+    $("modal-ic").textContent = "🏆";
+    $("modal-title").textContent = "اجتزت الاختبار!";
+    $("modal-msg").innerHTML = `أكملت مستوى <b>${level.title}</b> بنجاح!<br>النتيجة: ${correct}/${total} (${pct}%)<br>` +
+      (nextLevel ? `<span style="color:var(--green)">✅ المستوى التالي <b>${nextLevel.title}</b> أصبح مفتوحاً!</span>`
+                 : `<span style="color:var(--gold)">🎉 أنهيت كل المستويات المتاحة!</span>`);
+    $("modal-extra").innerHTML = `<div style="background:#eef9f4;border-radius:10px;padding:10px;margin-top:8px;color:var(--green);font-weight:800">
+      +${10*correct+bonusXP} XP (${10*correct} للإجابات + ${bonusXP} بونص اجتياز)
+    </div>`;
+  } else {
+    $("modal-ic").textContent = "😔";
+    $("modal-title").textContent = "لم تجتز الاختبار";
+    $("modal-msg").innerHTML = `النتيجة: ${correct}/${total} (${pct}%)<br>تحتاج 60% على الأقل لاجتياز الاختبار<br>وفتح <b>${nextLevel ? nextLevel.title : 'المستوى التالي'}</b>`;
+    $("modal-extra").innerHTML = `<div style="color:var(--txt-2);font-size:13px;margin-top:8px">أعد المحاولة لفتح المستوى التالي</div>`;
+  }
+  const actions = $("modal-actions");
+  actions.innerHTML = "";
+  if(passed){
+    if(nextLevel){
+      const b1 = document.createElement("button");
+      b1.className="btn green"; b1.textContent="▸ المستوى التالي";
+      b1.onclick=()=>{closeModal(); startLesson(nextLevel.id);};
+      actions.appendChild(b1);
+    }
+    const b2 = document.createElement("button");
+    b2.className="btn ghost"; b2.textContent="🏠 الرئيسية";
+    b2.onclick=()=>{closeModal(); state.lesson=null; go("home");};
+    actions.appendChild(b2);
+  } else {
+    const b1 = document.createElement("button");
+    b1.className="btn orange"; b1.textContent="🔄 إعادة الاختبار";
+    b1.onclick=()=>{closeModal(); startCompletionTest(L.levelId);};
+    actions.appendChild(b1);
+    const b2 = document.createElement("button");
+    b2.className="btn ghost"; b2.textContent="📚 إعادة الدرس";
+    b2.onclick=()=>{closeModal(); startLesson(L.levelId, true);};
+    actions.appendChild(b2);
+    const b3 = document.createElement("button");
+    b3.className="btn ghost"; b3.textContent="🏠 الرئيسية";
+    b3.onclick=()=>{closeModal(); state.lesson=null; go("home");};
+    actions.appendChild(b3);
+  }
+  modal.classList.add("active");
+  state.lesson = null;
+}
+
+function closeModal(){
+  $("modal").classList.remove("active");
+  const mb = $("modal-box");
+  if(mb) mb.classList.remove("wide");
+}
+
+/* ---------- 13) شاشة المراجعة ---------- */
+function renderReview(){
+  const due = getDueReviewWords();
+  $("review-count").textContent = due.length>0
+    ? `لديك ${due.length} كلمة بانتظار المراجعة الآن`
+    : "🎉 لا توجد كلمات للمراجعة حالياً. تعلم المزيد لتظهر كلمات للمراجعة.";
+  const list = $("review-list");
+  list.innerHTML = "";
+  if(due.length === 0){
+    list.innerHTML = `<div class="empty"><div class="em">📭</div>لا توجد كلمات للمراجعة</div>`;
+    return;
+  }
+  due.forEach(item=>{
+    const card = document.createElement("div");
+    card.className = "review-card";
+    card.innerHTML = `
+      <div class="em">${item.word.emoji}</div>
+      <div class="info">
+        <div class="en">${item.word.en}</div>
+        <div class="ar">${item.word.ar}</div>
+      </div>
+      <div class="stage">مرحلة ${item.stage}</div>
+    `;
+    card.onclick = ()=>startReview(item);
+    list.appendChild(card);
+  });
+}
+
+function startReview(item){
+  // اختبار سريع على الكلمة (اختيار من متعدد فقط)
+  if(state.energy<=0){
+    toast("⚠️ نفدت طاقتك!","error");
+    return;
+  }
+  state.energy--;
+  state.lesson = {
+    reviewMode:true,
+    activities:[
+      {type:"choice", word:item.word, reviewId:item.id},
+    ],
+    pos:0, hearts:3, correct:0, wrong:0, xpEarned:0,
+    levelId:"review", level:{title:"مراجعة", words:[item.word]},
+  };
+  // تحديث التحدي اليومي للمراجعة
+  updateDailyChallenge("review_words", 1);
+  go("lesson");
+  $("lesson-hearts").textContent = state.lesson.hearts;
+  $("lesson-fill").style.width = "0%";
+  renderActivity();
+}
+
+/* ---------- 14) شاشة الإحصائيات ---------- */
+function renderStats(){
+  // حساب عدد الكلمات المتعلمة (stage >= 3)
+  let learned = 0;
+  Object.keys(state.wordProgress).forEach(id=>{
+    if(state.wordProgress[id].stage >= 3) learned++;
+  });
+  $("sh-words").textContent = learned;
+  $("sc-streak").textContent = state.streak;
+  $("sc-xp").textContent = state.xp;
+  let total = 0, correct = 0;
+  Object.keys(state.wordProgress).forEach(id=>{
+    const p = state.wordProgress[id];
+    total += p.correct + p.wrong;
+    correct += p.correct;
+  });
+  $("sc-accuracy").textContent = total?Math.round(correct/total*100)+"%":"0%";
+  $("sc-levels").textContent = state.completedLevels.length;
+  // الرسم البياني
+  const bars = $("chart-bars");
+  bars.innerHTML = "";
+  const max = Math.max(...state.weekActivity, 1);
+  const days = ["إث","ثل","أر","خم","جم","سب","أح"];
+  state.weekActivity.forEach((v, i)=>{
+    const h = Math.round((v/max)*100);
+    const bar = document.createElement("div");
+    bar.className = "chart-bar";
+    bar.innerHTML = `<div class="bar" style="height:${Math.max(4,h)}%"></div><div class="day">${days[i]}</div>`;
+    bars.appendChild(bar);
+  });
+  // خريطة النشاط الحرارية (30 يوم)
+  renderHeatmap();
+  // معلومات إضافية: حماية السلسلة
+  const extra = $("stats-extra");
+  if(extra){
+    extra.innerHTML = `
+      <div class="stats-card" style="grid-column:1/-1">
+        <div class="ic g2">🛡️</div>
+        <div class="v">${state.streakFreeze.available||0}</div>
+        <div class="l">حماية السلسلة المتاحة</div>
+      </div>
+    `;
+  }
+  // الإنجازات
+  renderBadges();
+}
+
+const ACHIEVEMENTS = [
+  {id:"first_word", ic:"🌱", nm:"أول كلمة", test:()=>Object.keys(state.wordProgress).length>=1},
+  {id:"ten_words", ic:"📚", nm:"10 كلمات", test:()=>Object.keys(state.wordProgress).filter(id=>state.wordProgress[id].stage>=3).length>=10},
+  {id:"fifty_words", ic:"🎓", nm:"50 كلمة", test:()=>Object.keys(state.wordProgress).filter(id=>state.wordProgress[id].stage>=3).length>=50},
+  {id:"hundred_words", ic:"💎", nm:"100 كلمة", test:()=>Object.keys(state.wordProgress).filter(id=>state.wordProgress[id].stage>=3).length>=100},
+  {id:"streak3", ic:"🔥", nm:"3 أيام", test:()=>state.streak>=3},
+  {id:"streak7", ic:"⚡", nm:"أسبوع", test:()=>state.streak>=7},
+  {id:"streak30", ic:"💫", nm:"30 يوم", test:()=>state.streak>=30},
+  {id:"level1", ic:"🏆", nm:"مستوى 1", test:()=>state.completedLevels.length>=1},
+  {id:"level3", ic:"👑", nm:"3 مستويات", test:()=>state.completedLevels.length>=3},
+  {id:"level5", ic:"💎", nm:"5 مستويات", test:()=>state.completedLevels.length>=5},
+  {id:"level_all", ic:"🌟", nm:"كل المستويات", test:()=>state.levels.length>0 && state.completedLevels.length>=state.levels.length},
+  {id:"xp100", ic:"⭐", nm:"100 XP", test:()=>state.xp>=100},
+  {id:"xp500", ic:"🌟", nm:"500 XP", test:()=>state.xp>=500},
+  {id:"xp1000", ic:"💫", nm:"1000 XP", test:()=>state.xp>=1000},
+  {id:"xp5000", ic:"👑", nm:"5000 XP", test:()=>state.xp>=5000},
+  {id:"no_wrong", ic:"🎯", nm:"دون خطأ", test:()=>Object.values(state.wordProgress).some(p=>p.correct>=5 && p.wrong===0)},
+  {id:"daily_goal", ic:"✅", nm:"الهدف اليومي", test:()=>state.dailyProgress.count >= (state.settings.dailyGoal||10)},
+  {id:"challenge_done", ic:"🎖️", nm:"تحدي اليوم", test:()=>state.dailyChallenge && state.dailyChallenge.completed},
+  {id:"freeze_used", ic:"🛡️", nm:"حماية سلسلة", test:()=>state.streakFreeze.lastRefill && state.streakFreeze.available===0},
+  {id:"speed_demon", ic:"⚡", nm:"سرعة البرق", test:()=>Object.values(state.wordProgress).some(p=>p.correct>=3)},
+];
+
+function checkAchievements(){
+  ACHIEVEMENTS.forEach(a=>{
+    if(!state.achievements.includes(a.id) && a.test()){
+      state.achievements.push(a.id);
+      toast(`🏅 إنجاز جديد: ${a.nm}`, "success");
+      sfx("levelup");
+      fireConfetti(false);
+    }
+  });
+  saveState();
+}
+
+function renderBadges(){
+  const box = $("badges");
+  box.innerHTML = "";
+  ACHIEVEMENTS.forEach(a=>{
+    const earned = state.achievements.includes(a.id);
+    const b = document.createElement("div");
+    b.className = "badge" + (earned?" earned":"");
+    b.innerHTML = `<div class="ic">${a.ic}</div><div class="nm">${a.nm}</div>`;
+    box.appendChild(b);
+  });
+}
+
+/* ---------- خريطة النشاط الحرارية (30 يوم) ---------- */
+function renderHeatmap(){
+  const box = $("heatmap");
+  if(!box) return;
+  box.innerHTML = "";
+  // آخر 30 يوماً
+  const today = new Date();
+  const days = [];
+  for(let i=29; i>=0; i--){
+    const d = new Date(today);
+    d.setDate(d.getDate()-i);
+    const key = d.toISOString().slice(0,10);
+    const count = state.activityLog[key] || 0;
+    days.push({date:d, count, key});
+  }
+  // عرض على شكل شبكة (5 صفوف × 6 أعمدة)
+  const maxCount = Math.max(...days.map(d=>d.count), 1);
+  days.forEach(d=>{
+    const cell = document.createElement("div");
+    cell.className = "heat-cell";
+    const intensity = d.count / maxCount;
+    let color;
+    if(d.count === 0) color = "var(--heat-empty)";
+    else if(intensity < 0.25) color = "#ffd6c2";
+    else if(intensity < 0.5) color = "#ff8a5b";
+    else if(intensity < 0.75) color = "#ff6b35";
+    else color = "#e5491b";
+    cell.style.background = color;
+    const dateStr = d.date.toLocaleDateString("ar-EG",{month:"short",day:"numeric"});
+    cell.title = `${dateStr}: ${d.count} كلمة`;
+    cell.innerHTML = `<span class="heat-count">${d.count||""}</span>`;
+    box.appendChild(cell);
+  });
+}
+
+/* ---------- 15) شاشة الإعدادات (تبويبات) ---------- */
+let currentMTab = "general";
+function setMTab(tab, btn){
+  currentMTab = tab;
+  document.querySelectorAll(".mtab").forEach(t=>t.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  ["general","reminders","levels","data"].forEach(t=>{
+    const el = $("mtab-"+t);
+    if(el) el.style.display = (t===tab) ? "block" : "none";
+  });
+  if(tab==="reminders") renderReminders();
+  if(tab==="levels") renderLevelsMng();
+  if(tab==="data") updateStorageInfo();
+}
+
+function renderManage(){
+  renderSettings();
+  if(currentMTab==="reminders") renderReminders();
+  if(currentMTab==="levels") renderLevelsMng();
+  if(currentMTab==="data") updateStorageInfo();
+}
+
+/* ---------- أدوات مساعدة ---------- */
+function esc(s){
+  return String(s==null?"":s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+/* ============================================================
+   📚 مدير المراحل والكلمات — إضافة/تعديل/حذف/لصق سريع
+   ============================================================ */
+function renderLevelsMng(){
+  const box = $("levels-mng");
+  if(!box) return;
+  box.innerHTML = "";
+  if(!state.levels.length){
+    box.innerHTML = '<div class="dict-empty">لا توجد مراحل بعد — أضف مرحلتك الأولى! 🚀</div>';
+  }
+  state.levels.forEach(lv=>{
+    const grad = COLOR_GRADS[lv.color] || COLOR_GRADS.purple;
+    const badge = lv.custom
+      ? ' <span style="font-size:9px;color:var(--blue);font-weight:800">• مخصصة</span>'
+      : (lv.edited ? ' <span style="font-size:9px;color:#f39c12;font-weight:800">• معدّلة</span>' : '');
+    const row = document.createElement("div");
+    row.className = "mrow";
+    row.innerHTML = `
+      <div class="em" style="background:${grad}">${lv.emoji||"📚"}</div>
+      <div class="inf">
+        <div class="t">${esc(lv.title)}${badge}</div>
+        <div class="s">${lv.words.length} كلمة • ${esc(lv.desc||"بدون وصف")}</div>
+      </div>
+      <div class="act">
+        <button class="icon-btn go" title="إدارة الكلمات">📖</button>
+        <button class="icon-btn edit" title="تعديل المرحلة">✏️</button>
+        <button class="icon-btn del" title="حذف المرحلة">🗑️</button>
+      </div>
+    `;
+    row.querySelector(".go").onclick = ()=>openWordsManager(lv.id);
+    row.querySelector(".edit").onclick = ()=>openLevelEditor(lv.id);
+    row.querySelector(".del").onclick = ()=>deleteLevelById(lv.id);
+    box.appendChild(row);
+  });
+  const rb = $("hidden-restore");
+  if(rb){
+    if(state.hiddenLevels.length){
+      rb.innerHTML = `<button class="btn ghost block sm">♻️ استعادة المستويات الافتراضية المحذوفة (${state.hiddenLevels.length})</button>`;
+      rb.querySelector("button").onclick = restoreHiddenLevels;
+    } else rb.innerHTML = "";
+  }
+}
+
+function openLevelEditor(levelId){
+  const lv = levelId ? state.levels.find(l=>l.id===levelId) : null;
+  $("modal-ic").textContent = lv ? "✏️" : "➕";
+  $("modal-title").textContent = lv ? "تعديل المرحلة" : "مرحلة جديدة";
+  $("modal-msg").innerHTML = "";
+  $("modal-extra").innerHTML = `
+    <div class="field" style="text-align:right">
+      <label>اسم المرحلة</label>
+      <input id="le-title" value="${lv?esc(lv.title):""}" placeholder="مثال: في المطعم">
+    </div>
+    <div class="field" style="text-align:right">
+      <label>الوصف</label>
+      <input id="le-desc" value="${lv?esc(lv.desc||""):""}" placeholder="وصف قصير للمرحلة">
+    </div>
+    <div class="field" style="text-align:right">
+      <label>الرمز (إيموجي)</label>
+      <input id="le-emoji" value="${lv?esc(lv.emoji||""):"📚"}" maxlength="8" style="text-align:center;font-size:20px">
+      <div class="emoji-quick" id="le-emoji-quick"></div>
+    </div>
+    <div class="field" style="text-align:right">
+      <label>اللون</label>
+      <div class="swatches" id="le-colors"></div>
+    </div>
+  `;
+  const quick = $("le-emoji-quick");
+  ["📚","🍽️","⚽","🎬","🎵","🐾","🌿","🚗","💼","🛒","🏖️","⏰","💻","🌍"].forEach(e=>{
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = e;
+    b.onclick = ()=>{ $("le-emoji").value = e; };
+    quick.appendChild(b);
+  });
+  let selColor = (lv && COLOR_GRADS[lv.color]) ? lv.color : "purple";
+  const colorsBox = $("le-colors");
+  Object.keys(COLOR_GRADS).forEach(c=>{
+    const s = document.createElement("div");
+    s.className = "swatch" + (c===selColor?" sel":"");
+    s.style.background = COLOR_GRADS[c];
+    s.onclick = ()=>{
+      selColor = c;
+      colorsBox.querySelectorAll(".swatch").forEach(x=>x.classList.remove("sel"));
+      s.classList.add("sel");
+    };
+    colorsBox.appendChild(s);
+  });
+  const actions = $("modal-actions");
+  actions.innerHTML = "";
+  const save = document.createElement("button");
+  save.className = "btn purple"; save.textContent = "💾 حفظ";
+  save.onclick = ()=>{
+    const title = $("le-title").value.trim();
+    const emoji = $("le-emoji").value.trim() || "📚";
+    if(!title){ toast("⚠️ اكتب اسم المرحلة","error"); return; }
+    if(lv){
+      lv.title = title;
+      lv.desc = $("le-desc").value.trim();
+      lv.emoji = emoji;
+      lv.color = selColor;
+      if(!lv.custom) lv.edited = true;
+      toast("✅ تم تحديث المرحلة","success");
+    } else {
+      state.levels.push({
+        id:"c"+Date.now(),
+        title, desc:$("le-desc").value.trim(), emoji, color:selColor,
+        words:[], custom:true,
+      });
+      toast("🎉 أُضيفت المرحلة! افتح «الكلمات» لإضافة كلماتها","success");
+    }
+    saveState(); closeModal(); renderLevelsMng(); sfx("correct");
+  };
+  const cancel = document.createElement("button");
+  cancel.className = "btn ghost"; cancel.textContent = "إلغاء";
+  cancel.onclick = closeModal;
+  actions.appendChild(save); actions.appendChild(cancel);
+  $("modal-box").classList.add("wide");
+  $("modal").classList.add("active");
+}
+
+function deleteLevelById(levelId){
+  const lv = state.levels.find(l=>l.id===levelId);
+  if(!lv) return;
+  if(!confirm(`حذف مرحلة «${lv.title}» وكل كلماتها؟\nلن يمكن التراجع.`)) return;
+  state.levels = state.levels.filter(l=>l.id!==levelId);
+  if(!lv.custom && !state.hiddenLevels.includes(levelId)) state.hiddenLevels.push(levelId);
+  state.completedLevels = state.completedLevels.filter(id=>id!==levelId);
+  Object.keys(state.wordProgress).forEach(k=>{
+    if(k === levelId || k.startsWith(levelId+"_")) delete state.wordProgress[k];
+  });
+  if(state.wordOfDay && state.wordOfDay.levelId===levelId) state.wordOfDay = null;
+  saveState(); renderLevelsMng();
+  toast("🗑️ حُذفت المرحلة","success");
+}
+
+function restoreHiddenLevels(){
+  state.hiddenLevels = [];
+  // إعادة بناء القائمة: الافتراضيات (بنسخها المعدلة إن وجدت) + المخصصة
+  const editedMap = {};
+  state.levels.forEach(l=>{ if(l.edited) editedMap[l.id] = l; });
+  const customs = state.levels.filter(l=>l.custom);
+  state.levels = DEFAULT_LEVELS
+    .map(l=> editedMap[l.id] || l)
+    .concat(customs);
+  saveState(); renderLevelsMng();
+  toast("♻️ استُعيدت المستويات الافتراضية","success");
+}
+
+/* ---------- مدير الكلمات ---------- */
+function openWordsManager(levelId){
+  const lv = state.levels.find(l=>l.id===levelId);
+  if(!lv) return;
+  $("modal-ic").textContent = "📖";
+  $("modal-title").textContent = "كلمات: " + lv.title;
+  $("modal-msg").innerHTML = "";
+  const extra = $("modal-extra");
+  extra.innerHTML = "";
+  const listEl = document.createElement("div");
+  listEl.style.cssText = "max-height:38vh;overflow-y:auto;text-align:right";
+  if(!lv.words.length){
+    listEl.innerHTML = '<div class="dict-empty">لا توجد كلمات بعد — أضف أول كلمة! ✨</div>';
+  }
+  lv.words.forEach(w=>{
+    const row = document.createElement("div");
+    row.className = "mrow";
+    row.style.padding = "8px 10px";
+    row.innerHTML = `
+      <div class="em" style="background:var(--heat-empty)">${w.emoji||"📝"}</div>
+      <div class="inf">
+        <div class="t" style="font-family:'Poppins',sans-serif">${esc(w.en)}</div>
+        <div class="s">${esc(w.ar)}</div>
+      </div>
+      <div class="act">
+        <button class="icon-btn edit" title="تعديل">✏️</button>
+        <button class="icon-btn del" title="حذف">🗑️</button>
+      </div>
+    `;
+    row.querySelector(".edit").onclick = ()=>openWordEditor(lv.id, w.id);
+    row.querySelector(".del").onclick = ()=>deleteWordById(lv.id, w.id);
+    listEl.appendChild(row);
+  });
+  extra.appendChild(listEl);
+  const bulk = document.createElement("div");
+  bulk.className = "field";
+  bulk.style.cssText = "margin-top:12px;text-align:right";
+  bulk.innerHTML = `
+    <label>➕ لصق سريع — كل سطر: كلمة - ترجمة</label>
+    <textarea id="wm-bulk" placeholder="hello - مرحبا&#10;cat - قطة&#10;dog - كلب"></textarea>
+    <button class="btn green block sm" style="margin-top:6px" id="wm-bulk-btn">📥 إضافة الكلمات الملصوقة</button>
+  `;
+  extra.appendChild(bulk);
+  $("wm-bulk-btn").onclick = ()=>bulkAddWords(lv.id);
+  const actions = $("modal-actions");
+  actions.innerHTML = "";
+  const add = document.createElement("button");
+  add.className = "btn purple"; add.textContent = "➕ كلمة جديدة";
+  add.onclick = ()=>openWordEditor(lv.id);
+  const back = document.createElement("button");
+  back.className = "btn ghost"; back.textContent = "⬅ رجوع";
+  back.onclick = closeModal;
+  actions.appendChild(add); actions.appendChild(back);
+  $("modal-box").classList.add("wide");
+  $("modal").classList.add("active");
+}
+
+function bulkAddWords(levelId){
+  const lv = state.levels.find(l=>l.id===levelId);
+  if(!lv) return;
+  const ta = $("wm-bulk");
+  if(!ta) return;
+  const lines = ta.value.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  if(!lines.length){ toast("⚠️ الصق قائمة كلمات أولاً","error"); return; }
+  let added = 0, skipped = 0;
+  lines.forEach(line=>{
+    const m = line.match(/^(.+?)\s*(?:[-–—=|،؛:]|\t)\s*(.+)$/);
+    if(!m){ skipped++; return; }
+    const en = m[1].trim(), ar = m[2].trim();
+    if(!en || !ar){ skipped++; return; }
+    lv.words.push({
+      id:"c"+Date.now()+"_"+added,
+      en, ar, type:"noun", emoji:"📝", exEn:"", exAr:"",
+    });
+    added++;
+  });
+  if(added){
+    if(!lv.custom) lv.edited = true;
+    saveState(); sfx("correct");
+    toast(`✅ أُضيفت ${added} كلمة${skipped?` • تم تجاهل ${skipped} سطر`:""}`,"success");
+    openWordsManager(levelId);
+  } else {
+    toast("⚠️ لم أفهم الصيغة. استخدم: hello - مرحبا","error");
+  }
+}
+
+function openWordEditor(levelId, wordId){
+  const lv = state.levels.find(l=>l.id===levelId);
+  if(!lv) return;
+  const w = wordId ? lv.words.find(x=>x.id===wordId) : null;
+  $("modal-ic").textContent = w ? "✏️" : "➕";
+  $("modal-title").textContent = w ? "تعديل كلمة" : "كلمة جديدة";
+  $("modal-msg").innerHTML = "";
+  const typeOpts = [["noun","اسم"],["verb","فعل"],["adjective","صفة"],["adverb","ظرف"],["phrase","عبارة"],["number","رقم"]]
+    .map(([v,l])=>`<option value="${v}" ${w&&w.type===v?"selected":""}>${l}</option>`).join("");
+  $("modal-extra").innerHTML = `
+    <div class="field" style="text-align:right">
+      <label>الكلمة بالإنجليزية</label>
+      <input id="we-en" value="${w?esc(w.en):""}" placeholder="example" style="direction:ltr;text-align:left;font-family:'Poppins',sans-serif">
+    </div>
+    <div class="field" style="text-align:right">
+      <label>الترجمة بالعربية</label>
+      <input id="we-ar" value="${w?esc(w.ar):""}" placeholder="مثال">
+    </div>
+    <div class="field-row">
+      <div class="field" style="text-align:right">
+        <label>النوع</label>
+        <select id="we-type">${typeOpts}</select>
+      </div>
+      <div class="field" style="text-align:right">
+        <label>الإيموجي</label>
+        <input id="we-emoji" value="${w?esc(w.emoji||""):"📝"}" maxlength="8" style="text-align:center">
+      </div>
+    </div>
+    <div class="field" style="text-align:right">
+      <label>مثال بالإنجليزية (اختياري)</label>
+      <input id="we-exen" value="${w?esc(w.exEn||""):""}" placeholder="This is an example." style="direction:ltr;text-align:left">
+    </div>
+    <div class="field" style="text-align:right">
+      <label>ترجمة المثال (اختياري)</label>
+      <input id="we-exar" value="${w?esc(w.exAr||""):""}" placeholder="هذا مثال.">
+    </div>
+  `;
+  const actions = $("modal-actions");
+  actions.innerHTML = "";
+  const save = document.createElement("button");
+  save.className = "btn purple"; save.textContent = "💾 حفظ الكلمة";
+  save.onclick = ()=>{
+    const en = $("we-en").value.trim();
+    const ar = $("we-ar").value.trim();
+    if(!en || !ar){ toast("⚠️ اكتب الكلمة وترجمتها","error"); return; }
+    const data = {
+      en, ar,
+      type: $("we-type").value,
+      emoji: $("we-emoji").value.trim() || "📝",
+      exEn: $("we-exen").value.trim(),
+      exAr: $("we-exar").value.trim(),
+    };
+    if(w){
+      Object.assign(w, data);
+      if(!lv.custom) lv.edited = true;
+      toast("✅ حُدّثت الكلمة","success");
+    } else {
+      lv.words.push({id:"c"+Date.now(), ...data});
+      if(!lv.custom) lv.edited = true;
+      toast("✅ أُضيفت الكلمة","success");
+    }
+    saveState(); sfx("correct"); openWordsManager(levelId);
+  };
+  const cancel = document.createElement("button");
+  cancel.className = "btn ghost"; cancel.textContent = "⬅ رجوع";
+  cancel.onclick = ()=>openWordsManager(levelId);
+  actions.appendChild(save); actions.appendChild(cancel);
+  $("modal-box").classList.add("wide");
+  $("modal").classList.add("active");
+}
+
+function deleteWordById(levelId, wordId){
+  const lv = state.levels.find(l=>l.id===levelId);
+  if(!lv) return;
+  const w = lv.words.find(x=>x.id===wordId);
+  if(!w) return;
+  if(!confirm(`حذف كلمة «${w.en}»؟`)) return;
+  lv.words = lv.words.filter(x=>x.id!==wordId);
+  if(!lv.custom) lv.edited = true;
+  delete state.wordProgress[levelId+"_"+wordId];
+  saveState(); openWordsManager(levelId);
+  toast("🗑️ حُذفت الكلمة","success");
+}
+
+/* ============================================================
+   🔔 نظام التذكيرات الاحترافي — أوقات متعددة + مجدول دوري
+   ============================================================ */
+const NOTIF_ICON = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>";
+
+function renderReminders(){
+  const box = $("rem-times");
+  if(!box) return;
+  box.innerHTML = "";
+  const times = state.reminders.times || [];
+  if(!times.length){
+    box.innerHTML = '<div class="rem-empty">لا توجد أوقات بعد — أضف وقتاً للتذكير ⏰</div>';
+  }
+  times.forEach((t,i)=>{
+    const row = document.createElement("div");
+    row.className = "rem-row";
+    row.innerHTML = `
+      <span style="font-size:18px">⏰</span>
+      <input type="time" value="${t}">
+      <button class="icon-btn del" title="حذف الوقت">🗑️</button>
+    `;
+    row.querySelector("input").onchange = (e)=>updateReminderTime(i, e.target.value);
+    row.querySelector("button").onclick = ()=>removeReminderTime(i);
+    box.appendChild(row);
+  });
+  const chk = $("set-smart-reminder");
+  if(chk) chk.checked = state.settings.smartReminder !== false;
+}
+
+function addReminderTime(){
+  if(state.reminders.times.length >= 6){ toast("⚠️ الحد الأقصى 6 أوقات","error"); return; }
+  const d = new Date(Date.now() + 3600000);
+  const t = String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+  state.reminders.times.push(t);
+  saveState(); renderReminders();
+  toast("⏰ أُضيف وقت التذكير — عدّله كما تشاء","success");
+}
+
+function updateReminderTime(i, val){
+  if(!val) return;
+  state.reminders.times[i] = val;
+  saveState();
+  toast("✅ حُدّث وقت التذكير","success");
+}
+
+function removeReminderTime(i){
+  state.reminders.times.splice(i,1);
+  saveState(); renderReminders();
+}
+
+function saveReminderSettings(){
+  state.settings.smartReminder = $("set-smart-reminder").checked;
+  saveState();
+  toast("✅ حُفظ إعداد التذكير الذكي","success");
+}
+
+let reminderLoopStarted = false;
+function startReminderLoop(){
+  if(reminderLoopStarted) return;
+  reminderLoopStarted = true;
+  setInterval(remindersTick, 20000);
+  setTimeout(remindersTick, 2500);
+}
+
+function remindersTick(){
+  try{
+    if(!state.reminders || state.reminders.enabled === false) return;
+    if(!("Notification" in window) || Notification.permission !== "granted") return;
+    const now = new Date();
+    const todayKey = now.toISOString().slice(0,10);
+    const hhmm = String(now.getHours()).padStart(2,"0") + ":" + String(now.getMinutes()).padStart(2,"0");
+    const times = (state.reminders.times || []).slice();
+    if(state.settings.smartReminder !== false){
+      times.push(String(getOptimalReminderTime()).padStart(2,"0") + ":00");
+    }
+    times.forEach(t=>{
+      if(t === hhmm && state.reminders.fired[t] !== todayKey){
+        state.reminders.fired[t] = todayKey;
+        saveState();
+        fireReminderNotification();
+      }
+    });
+  }catch(e){console.warn("reminder tick error",e);}
+}
+
+function fireReminderNotification(){
+  try{
+    const due = getDueReviewWords();
+    const goal = state.settings.dailyGoal || 10;
+    const todayKey = new Date().toISOString().slice(0,10);
+    const done = state.activityLog[todayKey] || 0;
+    const body = due.length
+      ? `لديك ${due.length} كلمة بانتظار المراجعة! 🧠🔥`
+      : (done >= goal
+          ? "أكملت هدف اليوم! واصل تألقك 🌟"
+          : `بقي ${Math.max(1, goal-done)} كلمة لإكمال هدف اليوم 🎯`);
+    new Notification("📚 English Master", {
+      body: body,
+      tag: "em-reminder",
+      renotify: true,
+      icon: NOTIF_ICON,
+    });
+  }catch(e){console.warn("notify error",e);}
+}
+
+function testNotification(){
+  if(!("Notification" in window)){ toast("⚠️ متصفحك لا يدعم الإشعارات","error"); return; }
+  if(Notification.permission !== "granted"){
+    toast("ℹ️ اسمح بالإشعارات أولاً","error");
+    enableNotifications();
+    return;
+  }
+  fireReminderNotification();
+  toast("📣 أُرسل إشعار تجريبي","success");
+}
+
+/* ============================================================
+   💾 النسخ الاحتياطي واستعادة البيانات
+   ============================================================ */
+function buildSavePayload(){
+  return {
+    xp:state.xp,
+    streak:state.streak,
+    energy:state.energy,
+    lastVisit:state.lastVisit,
+    completedLevels:state.completedLevels,
+    wordProgress:state.wordProgress,
+    levels:state.levels.filter(l=>l.custom || l.edited),
+    settings:state.settings,
+    weekActivity:state.weekActivity,
+    achievements:state.achievements,
+    dailyProgress:state.dailyProgress,
+    dailyChallenge:state.dailyChallenge,
+    streakFreeze:state.streakFreeze,
+    wordOfDay:state.wordOfDay,
+    activityLog:state.activityLog,
+    hiddenLevels:state.hiddenLevels,
+    reminders:state.reminders,
+  };
+}
+
+function exportAllData(){
+  const data = {
+    app:"english-master",
+    version:2,
+    exportedAt:new Date().toISOString(),
+    state:buildSavePayload(),
+  };
+  const blob = new Blob([JSON.stringify(data,null,2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "english-master-backup-" + new Date().toISOString().slice(0,10) + ".json";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+  toast("⬇️ صُدّرت النسخة الاحتياطية","success");
+}
+
+function importAllData(input){
+  const file = input.files && input.files[0];
+  input.value = "";
+  if(!file) return;
+  if(!confirm("⚠️ الاستيراد سيستبدل بياناتك الحالية بالكامل. متابعة؟")) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    try{
+      const d = JSON.parse(reader.result);
+      const st = d.state || d;
+      if(typeof st !== "object" || st === null) throw new Error("bad");
+      if(!("xp" in st) && !("levels" in st) && !("wordProgress" in st)) throw new Error("bad");
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(st));
+      toast("✅ تم الاستيراد! جارٍ تحديث التطبيق...","success");
+      setTimeout(()=>location.reload(), 900);
+    }catch(e){
+      toast("⚠️ الملف غير صالح","error");
+    }
+  };
+  reader.readAsText(file);
+}
+
+function updateStorageInfo(){
+  const el = $("storage-info");
+  if(!el) return;
+  const words = state.levels.reduce((a,l)=>a+l.words.length,0);
+  const learned = Object.values(state.wordProgress).filter(p=>p.stage>=3).length;
+  const custom = state.levels.filter(l=>l.custom).length;
+  let size = 0;
+  try{ size = (JSON.stringify(buildSavePayload()).length/1024); }catch(e){}
+  el.innerHTML = `📚 ${state.levels.length} مرحلة (${custom} مخصصة) • 📝 ${words} كلمة • ✅ ${learned} متعلمة<br>💾 حجم البيانات: ${size.toFixed(1)} كيلوبايت`;
+}
+
+/* ============================================================
+   📖 قاموس الكلمات — بحث + نطق + تقدم لكل كلمة
+   ============================================================ */
+function renderDict(){
+  const box = $("dict-list");
+  if(!box) return;
+  const searchEl = $("dict-search");
+  const q = searchEl ? (searchEl.value||"").trim().toLowerCase() : "";
+  box.innerHTML = "";
+  let count = 0;
+  state.levels.forEach(lv=>{
+    const ws = lv.words.filter(w=>{
+      if(!q) return true;
+      return (w.en||"").toLowerCase().includes(q) || String(w.ar||"").includes(q);
+    });
+    if(!ws.length) return;
+    count += ws.length;
+    const head = document.createElement("div");
+    head.className = "dict-level-head";
+    head.innerHTML = `<span>${lv.emoji||"📚"}</span><span>${esc(lv.title)}</span><span style="color:var(--txt-3);font-weight:700;font-size:11px">(${ws.length})</span>`;
+    box.appendChild(head);
+    ws.forEach(w=>{
+      const stage = getWordStage(lv.id+"_"+w.id);
+      const row = document.createElement("div");
+      row.className = "dict-word";
+      const dots = Array.from({length:5},(_,i)=>`<span class="${i<stage?"on":""}"></span>`).join("");
+      row.innerHTML = `
+        <div class="em">${w.emoji||"📝"}</div>
+        <div class="w"><div class="en">${esc(w.en)}</div><div class="ar">${esc(w.ar)}</div></div>
+        <div class="stage-dots">${dots}</div>
+        <button class="speak-mini" title="استمع">🔊</button>
+      `;
+      row.querySelector(".speak-mini").onclick = ()=>speak(w.en);
+      box.appendChild(row);
+    });
+  });
+  const cnt = $("dict-count");
+  if(cnt) cnt.textContent = count;
+  if(count === 0) box.innerHTML = '<div class="dict-empty">لا توجد نتائج مطابقة 🔍</div>';
+}
+
+function renderSettings(){
+  const rateSel = $("set-rate");
+  if(rateSel) rateSel.value = state.settings.rate;
+  const voiceSel = $("set-voice");
+  if(voiceSel && state.settings.voice!=null) voiceSel.value = state.settings.voice;
+  const goalSel = $("set-daily-goal");
+  if(goalSel) goalSel.value = state.settings.dailyGoal || 10;
+  const reminderChk = $("set-smart-reminder");
+  if(reminderChk) reminderChk.checked = state.settings.smartReminder !== false;
+  const darkChk = $("set-dark-mode");
+  if(darkChk) darkChk.checked = !!state.settings.darkMode;
+  const autoChk = $("set-auto-speak");
+  if(autoChk) autoChk.checked = state.settings.autoSpeak !== false;
+}
+
+function applyDark(){
+  document.body.classList.toggle("dark", !!state.settings.darkMode);
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.setAttribute("content", state.settings.darkMode ? "#121419" : "#ff6b35");
+}
+
+function saveSettings(){
+  state.settings.rate = parseFloat($("set-rate").value);
+  state.settings.voice = $("set-voice").value ? parseInt($("set-voice").value) : null;
+  state.settings.dailyGoal = parseInt($("set-daily-goal").value) || 10;
+  state.settings.smartReminder = $("set-smart-reminder").checked;
+  state.settings.darkMode = $("set-dark-mode").checked;
+  state.settings.autoSpeak = $("set-auto-speak").checked;
+  applyDark();
+  saveState();
+  toast("✅ تم حفظ الإعدادات","success");
+  sfx("correct");
+}
+
+function enableNotifications(){
+  if(!("Notification" in window)){
+    toast("⚠️ متصفحك لا يدعم الإشعارات","error");
+    return;
+  }
+  Notification.requestPermission().then(p=>{
+    if(p==="granted"){
+      toast("🔔 تم تفعيل الإشعارات","success");
+      renderReminders();
+      setTimeout(fireReminderNotification, 300);
+    } else {
+      toast("⚠️ تم رفض إذن الإشعارات","error");
+    }
+  });
+}
+
+function resetProgress(){
+  if(!confirm("⚠️ سيتم حذف كل تقدمك (XP، الكلمات، السلسلة) وكل المراحل المخصصة. متأكد؟")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+}
+
+/* ============================================================
+   شاشة الاختبارات - اختبار الكتابة + اختبار الكلام
+   ============================================================ */
+
+/* ---------- تحقق من دعم التطبيق للكلام ---------- */
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+let recognition = null;
+let isRecording = false;
+function initSpeechRecognition(){
+  if(!SpeechRecognition){
+    toast("⚠️ متصفحك لا يدعم التعرف على الكلام. استخدم Chrome أو Edge","error");
+    return false;
+  }
+  if(!recognition){
+    recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 3;
+    recognition.continuous = false;
+  }
+  return true;
+}
+
+/* ---------- عرض شاشة الاختبارات ---------- */
+function renderTests(){
+  const support = !!SpeechRecognition;
+  const box = $("tests-content");
+  box.innerHTML = `
+    <div class="test-card" onclick="startTimedTest()">
+      <div class="test-ic" style="background:var(--red-grad)">⏱</div>
+      <h3>الاختبار المحدود الوقت</h3>
+      <p>10 أسئلة، 10 ثوانٍ لكل سؤال. اختبر سرعة بديهتك مع بونص للإجابات السريعة!</p>
+      <div class="test-meta">10 أسئلة • 10 ثوانٍ لكل سؤال • +5 XP بونص للإجابة خلال 5 ثوانٍ</div>
+    </div>
+    <div class="test-card" onclick="startTypingTest()">
+      <div class="test-ic" style="background:linear-gradient(135deg,#74b9ff,#0984e3)">📝</div>
+      <h3>اختبار الكتابة</h3>
+      <p>استمع للكلمة الإنجليزية ثم اكتبها بشكل صحيح</p>
+      <div class="test-meta">10 أسئلة • +5 XP لكل إجابة صحيحة</div>
+    </div>
+    <div class="test-card ${support?'':'disabled'}" onclick="${support?'startSpeakingTest()':''}">
+      <div class="test-ic" style="background:var(--orange-grad)">🗣️</div>
+      <h3>اختبار الكلام ${support?'':'(غير مدعوم)'}</h3>
+      <p>انطق الكلمة الإنجليزية المعروضة بصوت عالٍ وسيتم تقييم نطقك</p>
+      <div class="test-meta">10 أسئلة • +8 XP لكل نطق صحيح</div>
+    </div>
+    <div class="test-card" onclick="startMixedTest()">
+      <div class="test-ic" style="background:var(--green-grad)">🎯</div>
+      <h3>الاختبار الشامل</h3>
+      <p>مزيج من الاختيار من متعدد والكتابة والكلام</p>
+      <div class="test-meta">15 سؤال متنوع • +10 XP بونص عند الإكمال</div>
+    </div>
+  `;
+}
+
+/* ---------- بدء الاختبار المحدود الوقت ---------- */
+function startTimedTest(){
+  if(state.energy<=0){toast("⚠️ نفدت طاقتك!","error"); return;}
+  const words = gatherTestWords(10);
+  if(!words) return;
+  state.energy--;
+  // أنشطة متنوعة للاختبار: choice + listen
+  const activities = [];
+  words.forEach((w, i)=>{
+    if(i % 2 === 0) activities.push({type:"choice", word:w, idx:i});
+    else activities.push({type:"listen", word:w, idx:i});
+  });
+  state.lesson = {
+    testMode:"timed",
+    levelId:"test",
+    level:{title:"الاختبار المحدود الوقت", words},
+    activities: shuffle(activities),
+    pos:0, hearts:3, correct:0, wrong:0, xpEarned:0,
+  };
+  go("lesson");
+  $("lesson-hearts").textContent = state.lesson.hearts;
+  $("lesson-fill").style.width = "0%";
+  renderActivity();
+}
+
+/* ---------- جمع كلمات للاختبار ---------- */
+function gatherTestWords(count=10){
+  let allWords = [];
+  state.levels.forEach(lv=>{
+    lv.words.forEach(w=>{
+      allWords.push({...w, levelId:lv.id, levelTitle:lv.title});
+    });
+  });
+  if(allWords.length === 0){
+    toast("⚠️ لا توجد كلمات. أضف مستويات وكلمات أولاً","error");
+    return null;
+  }
+  return shuffle(allWords).slice(0, Math.min(count, allWords.length));
+}
+
+/* ---------- بدء اختبار الكتابة ---------- */
+function startTypingTest(){
+  if(state.energy<=0){toast("⚠️ نفدت طاقتك!","error"); return;}
+  const words = gatherTestWords(10);
+  if(!words) return;
+  state.energy--;
+  state.lesson = {
+    testMode:"typing",
+    levelId:"test",
+    level:{title:"اختبار الكتابة", words},
+    activities:words.map((w,i)=>({type:"listen", word:w, idx:i})),
+    pos:0, hearts:3, correct:0, wrong:0, xpEarned:0,
+  };
+  go("lesson");
+  $("lesson-hearts").textContent = state.lesson.hearts;
+  $("lesson-fill").style.width = "0%";
+  renderActivity();
+}
+
+/* ---------- بدء اختبار الكلام ---------- */
+function startSpeakingTest(){
+  if(!SpeechRecognition){
+    toast("⚠️ متصفحك لا يدعم التعرف على الكلام. استخدم Chrome أو Edge","error");
+    return;
+  }
+  if(state.energy<=0){toast("⚠️ نفدت طاقتك!","error"); return;}
+  const words = gatherTestWords(10);
+  if(!words) return;
+  state.energy--;
+  state.lesson = {
+    testMode:"speaking",
+    levelId:"test",
+    level:{title:"اختبار الكلام", words},
+    activities:words.map((w,i)=>({type:"speak", word:w, idx:i})),
+    pos:0, hearts:3, correct:0, wrong:0, xpEarned:0,
+  };
+  go("lesson");
+  $("lesson-hearts").textContent = state.lesson.hearts;
+  $("lesson-fill").style.width = "0%";
+  renderActivity();
+}
+
+/* ---------- بدء الاختبار الشامل ---------- */
+function startMixedTest(){
+  if(state.energy<=0){toast("⚠️ نفدت طاقتك!","error"); return;}
+  const words = gatherTestWords(15);
+  if(!words) return;
+  state.energy--;
+  // مزيج من الأنشطة: اختيار، كتابة، وكلام (إن مدعوم)
+  const support = !!SpeechRecognition;
+  const activities = [];
+  words.forEach((w,i)=>{
+    const r = i % 3;
+    if(r === 0) activities.push({type: (i%2===0 && canScrambleWord(w)) ? "scramble" : "choice", word:w, idx:i});
+    else if(r === 1) activities.push({type:"listen", word:w, idx:i});
+    else activities.push({type: support ? "speak" : (canScrambleWord(w) ? "scramble" : "choice"), word:w, idx:i});
+  });
+  state.lesson = {
+    testMode:"mixed",
+    levelId:"test",
+    level:{title:"الاختبار الشامل", words},
+    activities,
+    pos:0, hearts:3, correct:0, wrong:0, xpEarned:0,
+  };
+  go("lesson");
+  $("lesson-hearts").textContent = state.lesson.hearts;
+  $("lesson-fill").style.width = "0%";
+  renderActivity();
+}
+
+/* ---------- عرض نشاط اختبار الكلام ---------- */
+function renderSpeak(box, word){
+  const card = document.createElement("div");
+  card.className = "quiz-q";
+  card.innerHTML = `
+    <div class="label">🗣️ انطق الكلمة التالية</div>
+    <div class="word-emoji" style="font-size:64px;margin-bottom:8px">${word.emoji}</div>
+    <div class="prompt-en">${word.en}</div>
+    <div class="prompt-ar">${word.ar}</div>
+    <button class="speak-btn" title="استمع للنطق الصحيح">🔊</button>
+    <div class="recording-status" id="rec-status"></div>
+    <button class="mic-btn" id="mic-btn" onclick="startRecording('${word.en.replace(/'/g,"\\'")}')">
+      🎤
+    </button>
+    <div class="mic-hint">اضغط على المايك وانطق الكلمة بوضوح</div>
+    <div class="rec-result" id="rec-result"></div>
+  `;
+  card.querySelector(".speak-btn").onclick = ()=>speak(word.en);
+  box.appendChild(card);
+  setTimeout(()=>speak(word.en), 400);
+}
+
+/* ---------- بدء التسجيل الصوتي ---------- */
+function startRecording(targetWord){
+  if(!initSpeechRecognition()) return;
+  if(isRecording) return;
+  isRecording = true;
+  const micBtn = $("mic-btn");
+  const status = $("rec-status");
+  const result = $("rec-result");
+  micBtn.classList.add("recording");
+  micBtn.textContent = "🔴";
+  status.innerHTML = '<span class="rec-dot"></span> جاري التسجيل... انطق الآن';
+  status.className = "recording-status active";
+  result.innerHTML = "";
+  
+  recognition.onresult = (event)=>{
+    let transcripts = [];
+    for(let i=0; i<event.results.length; i++){
+      for(let j=0; j<event.results[i].length; j++){
+        transcripts.push(event.results[i][j].transcript.trim().toLowerCase());
+      }
+    }
+    const spoken = transcripts[0] || "";
+    const target = targetWord.toLowerCase().trim();
+    // تطابق تقريبي
+    const matched = transcripts.some(t => 
+      t === target || 
+      t.replace(/[^a-z]/g,"") === target.replace(/[^a-z]/g,"") ||
+      levenshtein(t.replace(/[^a-z]/g,""), target.replace(/[^a-z]/g,"")) <= 1
+    );
+    stopRecording();
+    result.className = "rec-result " + (matched?"correct":"wrong");
+    result.innerHTML = matched
+      ? `✅ <b>أحسنت!</b> نطقك: "<b>${spoken}</b>"`
+      : `❌ <b>حاول مجدداً</b><br><small>سمعت: "${spoken}"</small><br><small>المطلوب: "${targetWord}"</small>`;
+    setTimeout(()=>onSpeakResult(matched, targetWord), 1500);
+  };
+  recognition.onerror = (event)=>{
+    stopRecording();
+    let msg = "حدث خطأ";
+    if(event.error === "no-speech") msg = "لم أسمع أي كلام. حاول مجدداً";
+    else if(event.error === "not-allowed") msg = "تم رفض إذن المايك. فعّل الإذن من المتصفح";
+    else if(event.error === "aborted") msg = "تم الإلغاء";
+    result.className = "rec-result wrong";
+    result.innerHTML = "⚠️ " + msg;
+  };
+  recognition.onend = ()=>{
+    if(isRecording){
+      stopRecording();
+      if(!result.innerHTML){
+        result.className = "rec-result wrong";
+        result.innerHTML = "⚠️ لم أسمع الكلمة بوضوح. حاول مجدداً";
+      }
+    }
+  };
+  try{
+    recognition.start();
+  }catch(e){
+    stopRecording();
+    toast("⚠️ تعذر بدء التسجيل","error");
+  }
+}
+
+function stopRecording(){
+  isRecording = false;
+  const micBtn = $("mic-btn");
+  const status = $("rec-status");
+  if(micBtn){
+    micBtn.classList.remove("recording");
+    micBtn.textContent = "🎤";
+  }
+  if(status) status.className = "recording-status";
+  if(status) status.innerHTML = "";
+  try{ if(recognition) recognition.stop(); }catch(e){}
+}
+
+/* ---------- خوارزمية Levenshtein لمقارنة تقريبية ---------- */
+function levenshtein(a, b){
+  if(a.length === 0) return b.length;
+  if(b.length === 0) return a.length;
+  const matrix = [];
+  for(let i=0; i<=b.length; i++) matrix[i] = [i];
+  for(let j=0; j<=a.length; j++) matrix[0][j] = j;
+  for(let i=1; i<=b.length; i++){
+    for(let j=1; j<=a.length; j++){
+      const cost = a[j-1] === b[i-1] ? 0 : 1;
+      matrix[i][j] = Math.min(
+        matrix[i-1][j] + 1,
+        matrix[i][j-1] + 1,
+        matrix[i-1][j-1] + cost
+      );
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+/* ---------- نتيجة اختبار الكلام ---------- */
+function onSpeakResult(correct, word){
+  stopRecording();
+  const L = state.lesson;
+  if(!L) return;
+  if(correct){
+    L.correct++;
+    L.xpEarned += 8;
+    state.xp += 8;
+    showFeedback(true, word);
+    // تعديل تقدم الكلمة في النظام
+    if(L.testMode === "speaking" || L.testMode === "mixed"){
+      const w = L.activities[L.pos].word;
+      setWordResult(w.levelId+"_"+w.id, true);
+    }
+  } else {
+    L.wrong++;
+    L.hearts--;
+    $("lesson-hearts").textContent = L.hearts;
+    if(L.hearts <= 0){
+      hideFeedback();
+      setTimeout(()=>failLesson(), 600);
+      return;
+    }
+    showFeedback(false, word);
+  }
+}
+
+/* ---------- 16) Init ---------- */
+function init(){
+  try {
+    const loaded = loadState();
+    if(!loaded){
+      state.levels = DEFAULT_LEVELS.slice();
+    } else if(!state.levels || state.levels.length === 0){
+      state.levels = DEFAULT_LEVELS.slice();
+    }
+    handleDailyVisit();
+    applyDark();
+    startReminderLoop();
+    updateTopStats();
+    renderHome();
+    loadVoices();
+  } catch(e){
+    console.error("init error",e);
+    // كحل أخير: إعادة تعيين الحالة
+    try {
+      state.levels = DEFAULT_LEVELS.slice();
+      updateTopStats();
+      renderHome();
+    } catch(e2){console.error("fallback init error",e2);}
+  }
+}
+init();
+
+</script>
+</body>
+</html>
